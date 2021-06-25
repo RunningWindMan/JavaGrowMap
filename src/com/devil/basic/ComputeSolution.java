@@ -1,4 +1,4 @@
-package com.devil.javagroupmap.basic;
+package com.devil.basic;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
  * @author Devil
  * @date Created in 2021/6/25 9:21
  */
-public class ComputeTestOne {
+public class ComputeSolution {
 
     public static final Integer COUNT = 1000;
 
