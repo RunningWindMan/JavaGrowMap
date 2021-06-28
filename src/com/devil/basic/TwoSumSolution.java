@@ -36,10 +36,6 @@ public class TwoSumSolution {
         if (nums == null || nums.length < 2) {
             return new int[0];
         }
-        if (nums.length == 2) {
-            result = new int[]{0, 1};
-            return result;
-        }
         HashMap<Integer, Integer> resultMap = new HashMap<>(nums.length * 2);
         for (int i = 0; i < nums.length; i++) {
             // 存在返回
