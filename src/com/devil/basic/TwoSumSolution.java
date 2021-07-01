@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class TwoSumSolution {
 
     public int[] solutionOne(int[] nums, int target) {
-        int[] result = new int[0];
+        int[] result;
         if (nums == null || nums.length < 2) {
             return new int[0];
         }
@@ -19,6 +19,8 @@ public class TwoSumSolution {
             result = new int[]{0, 1};
             return result;
         }
+
+        result = new int[2];
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
