@@ -1,4 +1,4 @@
-package com.devil.basic;
+package com.devil.basic.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
