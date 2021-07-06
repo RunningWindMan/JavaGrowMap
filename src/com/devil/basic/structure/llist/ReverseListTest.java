@@ -54,33 +54,4 @@ public class ReverseListTest {
         return cur;
     }
 
-    private static class Node {
-
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-        }
-
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        /**
-         * @return the next
-         */
-        public Node getNext() {
-            return next;
-        }
-
-        /**
-         * @param next : the next to set
-         */
-        public void setNext(Node next) {
-            this.next = next;
-        }
-
-    }
 }

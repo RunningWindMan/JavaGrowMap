@@ -20,24 +20,8 @@ public class MergeListTest {
         Node node6 = new Node(1, node7);
 
         Node result = merge(node1, node6);
-        print(result);
+        result.printNode(result);
 
-    }
-
-    public static void print(Node node) {
-        if (node == null) {
-            return;
-        }
-
-        Node cur = node;
-        StringBuilder s = new StringBuilder();
-        while (cur != null) {
-            s.append(cur.data);
-            s.append(" -> ");
-            cur = cur.next;
-        }
-        s.append("null");
-        System.out.println(s);
     }
 
     public static Node merge(Node node1, Node node2) {
@@ -90,35 +74,6 @@ public class MergeListTest {
         }
 
         return head;
-    }
-
-    private static class Node {
-
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-        }
-
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        /**
-         * @return the next
-         */
-        public Node getNext() {
-            return next;
-        }
-
-        /**
-         * @param next : the next to set
-         */
-        public void setNext(Node next) {
-            this.next = next;
-        }
     }
 
 }

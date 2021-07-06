@@ -38,43 +38,4 @@ public class ListCircleTest {
         return result;
     }
 
-    private static class Node {
-
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-        }
-
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        /**
-         * @return the next
-         */
-        public Node getNext() {
-            return next;
-        }
-
-        /**
-         * @param next : the next to set
-         */
-        public void setNext(Node next) {
-            this.next = next;
-        }
-
-        @Override
-        public int hashCode() {
-            return super.hashCode();
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            return super.equals(obj);
-        }
-    }
-
 }
