@@ -14,7 +14,7 @@ public class ReverseListTest {
         Node node2 = new Node(2, node3);
         Node node1 = new Node(1, node2);
 
-//        print(node1);
+        print(node1);
 
         Node reverseNode1 = reverse(node1);
         print(reverseNode1);
@@ -26,13 +26,12 @@ public class ReverseListTest {
             return;
         }
 
-        Node next = node.next;
-        StringBuilder s = new StringBuilder(String.valueOf(node.data));
-        s.append(" -> ");
-        while (next != null) {
-            s.append(next.data);
+        Node cur = node;
+        StringBuilder s = new StringBuilder();
+        while (cur != null) {
+            s.append(cur.data);
             s.append(" -> ");
-            next = next.next;
+            cur = cur.next;
         }
         s.append("null");
         System.out.println(s);
