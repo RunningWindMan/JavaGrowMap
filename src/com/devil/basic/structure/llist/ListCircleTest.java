@@ -18,10 +18,11 @@ public class ListCircleTest {
         Node node1 = new Node(1, node3);
         Node node0 = new Node(0, node1);
         node3.setNext(node1);
-        System.out.println(isCircle(node0));
+//        System.out.println(isCircleOne(node0));
+        System.out.println(isCircleTwo(node0));
     }
 
-    public static boolean isCircle(Node node) {
+    public static boolean isCircleOne(Node node) {
         boolean result = false;
         if (node != null) {
             Map<Node, Integer> dataMap = new HashMap<>();
@@ -36,6 +37,24 @@ public class ListCircleTest {
             }
         }
         return result;
+    }
+
+    public static boolean isCircleTwo(Node node) {
+        Node slow = node;
+        Node fast = node.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (fast == null) {
+                return false;
+            } else if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

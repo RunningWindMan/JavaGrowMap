@@ -6,7 +6,7 @@ package com.devil.basic.structure.llist;
  * @author Devil
  * @date Created in 2021/7/6 14:07
  */
-public class RemoveListIndexNode {
+public class RemoveListIndexNodeTest {
 
     public static void main(String[] args) {
         Node node6 = new Node(6, null);
