@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class LruTest {
 
-    public class ListNode {
+    public static class ListNode {
         ListNode prev;
         ListNode next;
         int key, value;
