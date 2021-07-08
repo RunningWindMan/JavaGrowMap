@@ -1,4 +1,4 @@
-package com.devil.basic.structure.llist;
+package com.devil.basic.structure.list;
 
 /**
  * 两个有序链表合并（默认正序）

@@ -1,4 +1,4 @@
-package com.devil.basic.structure.llist;
+package com.devil.basic.structure.list;
 
 /**
  * 求链表中间节点 (快慢指针  一个走一步  一个走两步)

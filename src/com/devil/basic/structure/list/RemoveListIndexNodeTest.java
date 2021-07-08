@@ -1,4 +1,4 @@
-package com.devil.basic.structure.llist;
+package com.devil.basic.structure.list;
 
 /**
  * 删除链表倒数指定位置的节点

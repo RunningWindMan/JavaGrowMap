@@ -1,4 +1,4 @@
-package com.devil.basic.structure.llist;
+package com.devil.basic.structure.list;
 
 import java.util.HashMap;
 import java.util.Map;

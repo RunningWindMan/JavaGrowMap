@@ -1,4 +1,4 @@
-package com.devil.basic.structure.llist;
+package com.devil.basic.structure.list;
 
 /**
  * 单链表节点
