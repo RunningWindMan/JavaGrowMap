@@ -8,8 +8,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author thousandyears
- * @date Created in 2020/12/3 9:14
+ * 配置注解
+ *
+ * @author devil
+ * @date Created in 2021/7/15 9:27
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

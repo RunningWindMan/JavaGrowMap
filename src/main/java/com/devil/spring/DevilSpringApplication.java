@@ -15,7 +15,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 public class DevilSpringApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(DevilSpringApplication.class).run(args);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilSpringApplication.class);
+        springApplicationBuilder.run(args);
     }
 
 }

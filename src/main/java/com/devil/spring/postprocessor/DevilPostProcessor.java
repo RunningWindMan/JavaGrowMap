@@ -1,11 +1,13 @@
 package com.devil.spring.postprocessor;
 
+import com.devil.spring.bean.DevilBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.Ordered;
 
 /**
@@ -20,13 +22,17 @@ public class DevilPostProcessor implements BeanPostProcessor, Ordered, BeanFacto
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log.info("bean初始化前===========   beanName : {}", beanName);
+        if (bean instanceof DevilBean) {
+            log.info("bean初始化前===========   beanName : {}", beanName);
+        }
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log.info("bean初始化后-----  beanName : {}", beanName);
+        if (bean instanceof DevilBean) {
+            log.info("bean初始化后-----  beanName : {}", beanName);
+        }
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 

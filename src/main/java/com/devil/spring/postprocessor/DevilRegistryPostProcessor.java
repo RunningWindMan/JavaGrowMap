@@ -17,7 +17,7 @@ public class DevilRegistryPostProcessor implements BeanDefinitionRegistryPostPro
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-
+        log.info("postProcessBeanDefinitionRegistry++++++++++");
     }
 
     @Override

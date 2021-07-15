@@ -1,5 +1,6 @@
 package com.devil.spring.config;
 
+import com.devil.spring.bean.DevilBean;
 import com.devil.spring.postprocessor.DevilPostProcessor;
 import com.devil.spring.postprocessor.DevilRegistryPostProcessor;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -37,6 +38,7 @@ public class DevilConfiguration {
             beanDefinition.setSynthetic(false);
             registry.registerBeanDefinition(BEAN_NAME, beanDefinition);
             registry.registerBeanDefinition(REGISTRY_BEAN_NAME, new RootBeanDefinition(DevilRegistryPostProcessor.class));
+            registry.registerBeanDefinition("devilBean", new RootBeanDefinition(DevilBean.class));
         }
     }
 
