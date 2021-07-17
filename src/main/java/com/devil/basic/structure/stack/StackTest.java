@@ -27,7 +27,6 @@ public class StackTest {
             stack1.push(popNode);
         }
         stack1.push(node);
-
     }
 
     public int pop() {

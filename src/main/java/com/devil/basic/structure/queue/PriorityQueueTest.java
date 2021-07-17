@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 /**
  * 优先级队列  寻找一数组中前K个最大的数
  *
- * @author com.devil
+ * @author Devil
  * @date Created in 2021/7/12 15:59
  */
 public class PriorityQueueTest {

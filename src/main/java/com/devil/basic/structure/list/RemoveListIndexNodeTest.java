@@ -60,6 +60,8 @@ public class RemoveListIndexNodeTest {
         Node first = node;
         Node second = node;
 
+        // 为什么从0开始？默认null也算一个节点，其实是倒数index+1个节点，所以也可以这样写
+//        for (int i = 1; i <= index + 1; i++) {
         for (int i = 0; i <= index; i++) {
             if (first != null) {
                 first = first.next;

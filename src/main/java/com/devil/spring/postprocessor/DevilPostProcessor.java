@@ -7,7 +7,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.Ordered;
 
 /**
