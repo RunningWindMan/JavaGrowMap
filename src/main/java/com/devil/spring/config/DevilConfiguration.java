@@ -1,16 +1,22 @@
 package com.devil.spring.config;
 
 import com.devil.spring.bean.DevilBean;
+import com.devil.spring.bean.PrototypeBean;
 import com.devil.spring.postprocessor.DevilPostProcessor;
 import com.devil.spring.postprocessor.DevilRegistryPostProcessor;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.type.AnnotationMetadata;
+
+import java.util.Random;
 
 /**
  * 配置
@@ -20,6 +26,14 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 @Configuration(proxyBeanMethods = false)
 public class DevilConfiguration {
+
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public PrototypeBean prototypeBean() {
+        Random random = new Random();
+        int code = random.nextInt(100);
+        return new PrototypeBean(code);
+    }
 
     static class Registrar implements ImportBeanDefinitionRegistrar {
 
