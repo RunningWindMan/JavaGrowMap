@@ -2,5 +2,10 @@ spring:
   application:
     name: java-grow-map
 
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
 server:
   port: 8080
