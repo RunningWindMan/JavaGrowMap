@@ -105,18 +105,18 @@ public class BinaryHeap {
         int i = 37;
 
         try {
-            for (i = 37; i != 0; i = (i + 37) % numItems){
+            for (i = 37; i != 0; i = (i + 37) % numItems) {
                 h.insert(i);
             }
 
-            for (int j=1;j<=h.currentSize;j++){
-                System.out.print(h.array[j]+" ");
+            for (int j = 1; j <= h.currentSize; j++) {
+                System.out.print(h.array[j] + " ");
             }
 
-            System.out.println("\n"+h.findMin());
+            System.out.println("\n" + h.findMin());
             h.deleteMin();
-            for (int j=1;j<=h.currentSize;j++){
-                System.out.print(h.array[j]+" ");
+            for (int j = 1; j <= h.currentSize; j++) {
+                System.out.print(h.array[j] + " ");
             }
         } catch (Exception e) {
             System.out.println("Overflow (expected)! " + i);
