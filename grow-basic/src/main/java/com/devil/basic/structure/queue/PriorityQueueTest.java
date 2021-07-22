@@ -21,9 +21,15 @@ public class PriorityQueueTest {
                 priorityQueue.offer(a[i]);
             }
         }
-        for (int i = 0; i < priorityQueue.size(); i++) {
+        int len = priorityQueue.size();
+        for (int i = 0; i < len; i++) {
             System.out.println(priorityQueue.poll() + " ");
         }
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[]{3, 4, 6, 2, 1, 6, 7, 8, 9};
+        topK(a, 4);
     }
 
 }

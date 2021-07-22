@@ -45,7 +45,7 @@ public class HeapTest {
 
 
     /**
-     * 构造大顶堆
+     * 构造大顶堆（找最小）
      */
     public void highestHeap(int[] a, int i, int heapLength) {
         int l = left(i);
@@ -75,7 +75,7 @@ public class HeapTest {
     }
 
     /**
-     * 构造小顶堆
+     * 构造小顶堆（找最大）
      */
     public void lowestHeap(int[] a, int i, int heapLength) {
         int l = left(i);

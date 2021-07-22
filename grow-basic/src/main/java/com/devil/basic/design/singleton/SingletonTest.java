@@ -1,4 +1,4 @@
-package com.devil.basic.design;
+package com.devil.basic.design.singleton;
 
 /**
  * 单例测试
