@@ -27,11 +27,11 @@ package com.devil.basic.structure.heap;
 public class HeapTest {
 
     public int left(int i) {
-        return (i + 1) * 2 - 1;
+        return 2 * i + 1;
     }
 
     public int right(int i) {
-        return (i + 1) * 2;
+        return 2 * i + 2;
     }
 
     public int parent(int i) {
@@ -98,7 +98,7 @@ public class HeapTest {
             int temp = a[i];
             a[i] = a[smallest];
             a[smallest] = temp;
-            // 交换元素后，以a[i]为根的树可能不在满足大根堆性质，于是递归调用该方法
+            // 交换元素后，以a[i]为根的树可能不在满足小根堆性质，于是递归调用该方法
             lowestHeap(a, smallest, heapLength);
         }
     }
