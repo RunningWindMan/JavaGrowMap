@@ -24,14 +24,15 @@ public class BinaryTreeMirror {
         node2.right = node5;
         node3.left = node6;
 
-        BinaryTreeLoop.preLoop(node1);
+//        BinaryTreeLoop.preLoop(node1);
+        BinaryTreeLoop.preLoop2(node1);
         System.out.println();
 
 //        TreeNode recursionSolution = recursionSolution(node1);
 //        BinaryTreeLoop.preLoop(recursionSolution);
 
-        TreeNode noRecursionSolution = noRecursionSolution(node1);
-        BinaryTreeLoop.preLoop(noRecursionSolution);
+//        TreeNode noRecursionSolution = noRecursionSolution(node1);
+//        BinaryTreeLoop.preLoop(noRecursionSolution);
     }
 
     /**
