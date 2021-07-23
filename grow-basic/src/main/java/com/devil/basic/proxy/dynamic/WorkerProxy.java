@@ -1,8 +1,5 @@
 package com.devil.basic.proxy.dynamic;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -13,8 +10,6 @@ import java.lang.reflect.Proxy;
  */
 public class WorkerProxy implements InvocationHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(WorkerProxy.class);
-
     private Object worker;
 
     public WorkerProxy(Object worker) {
@@ -23,9 +18,9 @@ public class WorkerProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        log.info("proxy start ==== ++++");
+        System.out.println("proxy start ==== ++++");
         method.invoke(worker, args);
-        log.info("proxy end ==== ++++");
+        System.out.println("proxy end ==== ++++");
         return null;
     }
 
