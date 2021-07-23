@@ -35,7 +35,7 @@ public class InsertionSort implements Sort {
                     break;
                 }
             }
-            // 最后塞入当前值
+            // 最后塞入当前值，为什么是j+1，因为之前j--过
             a[j + 1] = value;
         }
     }
