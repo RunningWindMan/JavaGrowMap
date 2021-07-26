@@ -4,7 +4,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -20,7 +19,7 @@ public class RpcServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         RpcRequest request = (RpcRequest) msg;
         Calendar calendar = Calendar.getInstance();
-        int i = calendar.get(Calendar.SECOND);
+        int i = calendar.get(Calendar.MILLISECOND);
         System.out.println(i + " 接收到客户端信息:" + request.toString());
         // 返回的数据结构
         RpcResponse response = new RpcResponse();

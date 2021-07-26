@@ -16,7 +16,7 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) throws Exception {
         Calendar calendar = Calendar.getInstance();
-        int i = calendar.get(Calendar.SECOND);
+        int i = calendar.get(Calendar.MILLISECOND);
         System.out.println(i + " 接受到server响应数据: " + rpcResponse.toString());
     }
 
