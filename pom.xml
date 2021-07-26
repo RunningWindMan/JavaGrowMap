@@ -8,6 +8,7 @@
         <module>grow-spring</module>
         <module>grow-initializer</module>
         <module>grow-listener</module>
+        <module>grow-netty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
