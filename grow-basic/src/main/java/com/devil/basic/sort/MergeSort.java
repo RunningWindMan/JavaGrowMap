@@ -1,4 +1,4 @@
-package com.devil.basic.structure.sort;
+package com.devil.basic.sort;
 
 /**
  * @author Devil

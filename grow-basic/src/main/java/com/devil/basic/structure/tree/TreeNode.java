@@ -1,4 +1,4 @@
-package com.devil.basic.leetcode.tree;
+package com.devil.basic.structure.tree;
 
 /**
  * @author Devil

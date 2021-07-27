@@ -1,4 +1,4 @@
-package com.devil.basic.structure.search;
+package com.devil.basic.search;
 
 /**
  * 二分查找法
