@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @date Created in 2021/7/20 14:13
  */
 @RestController
-@RequestMapping(path = "devilTest2")
-public class Test2Controller {
+@RequestMapping(path = "prototypeTest2")
+public class PrototypeTest2Controller {
 
-    @GetMapping(path = "prototype")
+    @GetMapping(path = "prototypeByGetBean")
     public Integer prototypeTest() {
         PrototypeBean prototypeBean = ApplicationContextUtil.getBean(PrototypeBean.class);
         return prototypeBean.getCode();

@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @date Created in 2021/7/20 14:13
  */
 @RestController
-@RequestMapping(path = "devilTest")
-public class TestController {
+@RequestMapping(path = "prototypeTest")
+public class PrototypeTestController {
 
     @Autowired
     private PrototypeBean prototypeBean;
 
-    @GetMapping(path = "prototype")
+    @GetMapping(path = "prototypeByAutowired")
     public Integer prototypeTest() {
         return prototypeBean.getCode();
     }
