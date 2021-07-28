@@ -13,9 +13,9 @@ import org.springframework.core.Ordered;
  * @author Devil
  * @date Created in 2021/7/14 21:16
  */
-public class DevilPostProcessor implements BeanPostProcessor, Ordered, BeanFactoryAware {
+public class DevilBeanPostProcessor implements BeanPostProcessor, Ordered, BeanFactoryAware {
 
-    private static final Logger log = LoggerFactory.getLogger(DevilPostProcessor.class);
+    private static final Logger log = LoggerFactory.getLogger(DevilBeanPostProcessor.class);
 
     private BeanFactory beanFactory;
 

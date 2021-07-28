@@ -11,9 +11,9 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
  * @author Devil
  * @date Created in 2021/7/14 22:43
  */
-public class DevilRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
+public class DevilBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
-    private static final Logger log = LoggerFactory.getLogger(DevilRegistryPostProcessor.class);
+    private static final Logger log = LoggerFactory.getLogger(DevilBeanDefinitionRegistryPostProcessor.class);
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
