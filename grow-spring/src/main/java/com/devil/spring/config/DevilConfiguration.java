@@ -5,6 +5,8 @@ import com.devil.spring.bean.PrototypeBean;
 import com.devil.spring.postprocessor.DevilBeanFactoryPostProcessor;
 import com.devil.spring.postprocessor.DevilBeanPostProcessor;
 import com.devil.spring.postprocessor.DevilBeanDefinitionRegistryPostProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -42,9 +44,12 @@ public class DevilConfiguration {
         private static final String REGISTRY_BEAN_NAME = "devilRegistryPostProcessor";
         private static final String BEAN_FACTORY_BEAN_NAME = "devilBeanFactoryPostProcessor";
 
+        private static final Logger log = LoggerFactory.getLogger(Registrar.class);
+
         @Override
         public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
                                             BeanDefinitionRegistry registry) {
+            log.info("ImportBeanDefinitionRegistrar ===");
             AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder
                     .genericBeanDefinition(DevilBeanPostProcessor.class,
                             DevilBeanPostProcessor::new)

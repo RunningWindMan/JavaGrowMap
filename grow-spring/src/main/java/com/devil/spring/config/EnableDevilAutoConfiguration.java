@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Import({DevilConfiguration.Registrar.class})
+@Import({DevilConfiguration.Registrar.class, DevilImport.class})
 public @interface EnableDevilAutoConfiguration {
 
 }
