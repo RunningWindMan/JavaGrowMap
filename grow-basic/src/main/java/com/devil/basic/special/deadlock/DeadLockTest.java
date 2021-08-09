@@ -7,22 +7,22 @@ package com.devil.basic.special.deadlock;
 public class DeadLockTest {
 
     public static void main(String[] args) {
-        Sy sy = new Sy(0);
-        Sy sy2 = new Sy(1);
-        sy.start();
-        sy2.start();
+        DeadLock deadLock1 = new DeadLock(0);
+        DeadLock deadLock2 = new DeadLock(1);
+        deadLock1.start();
+        deadLock2.start();
     }
 
 }
 
-class Sy extends Thread {
+class DeadLock extends Thread {
 
     private int flag;
 
     static Object x1 = new Object();
     static Object x2 = new Object();
 
-    public Sy(int flag) {
+    public DeadLock(int flag) {
         this.flag = flag;
     }
 
