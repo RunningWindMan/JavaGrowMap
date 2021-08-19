@@ -1,11 +1,12 @@
 package com.devil.test;
 
+import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 import com.devil.spring.DevilSpringApplication;
 import org.junit.jupiter.api.Test;
-import org.redisson.api.RBucket;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
+import org.redisson.client.protocol.ScoredEntry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class RedissonTest {
     private RedissonClient redissonClient;
 
     @Test
+    public void commonTest() {
+        System.out.println(Integer.MAX_VALUE);
+    }
+
+    @Test
     public void putTest() {
         RBucket<String> bucket = redissonClient.getBucket("test");
         bucket.set("123");
@@ -44,5 +50,43 @@ public class RedissonTest {
 
         log.info("size {}", objectSize);
     }
+
+    @Test
+    public void putTest2() {
+        RScoredSortedSet<String> memberList = redissonClient.getScoredSortedSet("memberList");
+        int count = 20000;
+        while (count > 0) {
+            String curTime = String.valueOf(System.currentTimeMillis());
+            memberList.add(count, curTime + "-" + count + "-" + curTime);
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            count--;
+        }
+    }
+
+    @Test
+    public void getTest() {
+        RScoredSortedSet<String> memberList = redissonClient.getScoredSortedSet("memberList");
+        long startTime = System.currentTimeMillis();
+        int total = memberList.size();
+        int index = 0;
+        while (index < total) {
+            Collection<ScoredEntry<String>> scoredEntries = memberList.entryRange(index, 100);
+            index += 100;
+            for (ScoredEntry<String> entry : scoredEntries) {
+                if (entry.getValue().contains("1629187357901")) {
+                    index = total;
+                    break;
+                }
+            }
+        }
+        long interval = System.currentTimeMillis() - startTime;
+        // 平均100ms
+        System.out.println("用时： " + interval + "ms");
+    }
+
 }
  
