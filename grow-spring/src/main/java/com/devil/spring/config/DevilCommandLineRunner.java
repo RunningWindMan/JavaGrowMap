@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 public class DevilCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        while (true) {
-            System.out.println(System.currentTimeMillis());
-            TimeUnit.MILLISECONDS.sleep(500);
-        }
+//        while (true) {
+//            System.out.println(System.currentTimeMillis());
+//            TimeUnit.MILLISECONDS.sleep(500);
+//        }
     }
 }
