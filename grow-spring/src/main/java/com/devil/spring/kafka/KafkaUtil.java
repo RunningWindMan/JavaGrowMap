@@ -25,7 +25,7 @@ import java.util.Map;
  * @author Devil
  * @date Created in 2021/11/22 14:10
  */
-@Component
+//@Component
 public class KafkaUtil {
 
     private static final Logger log = LoggerFactory.getLogger(KafkaUtil.class);

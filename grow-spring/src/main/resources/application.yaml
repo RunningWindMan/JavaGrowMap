@@ -32,11 +32,33 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #值的反序列化器类，实现类实现了接口org.apache.kafka.common.serialization.Deserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-
+  #redis配置
   redis:
     host: 127.0.0.1
-    port: 6379
     database: 0
+    lettuce:
+      pool:
+        max-active: 1000
+        max-idle: 10
+        max-wait: -1
+        min-idle: 5
+    port: 6379
+    timeout: 6000
+  #rabbitmq配置
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+    virtual-host: /
+    listener:
+      type: simple
+      simple:
+        max-concurrency: 100
+        #采用手动应答
+        acknowledge-mode: manual
+        #限制每次发送一条数据
+        prefetch: 1
 
 server:
-  port: 8080
+  port: 8888

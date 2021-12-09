@@ -1,4 +1,4 @@
-package com.devil.spring.controller;
+package com.devil.spring.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,13 +6,15 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 /**
+ * kafka消费者
+ *
  * @author Devil
  * @date Created in 2021/12/2 17:25
  */
-@Component
-public class KafkaConsumerController {
+//@Component
+public class KafkaConsumer {
 
-    private static final Logger log = LoggerFactory.getLogger(KafkaConsumerController.class);
+    private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
     /**
      * 消费者示例demo

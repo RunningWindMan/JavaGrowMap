@@ -1,8 +1,12 @@
 package com.devil.basic.test;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 测试类
@@ -41,8 +45,73 @@ public class Test {
 
 //        System.out.println(Long.MAX_VALUE);
 
-        Map<Integer, Integer> map = new HashMap<>();
-        map.values().forEach(System.out::println);
+//        Map<Integer, Integer> map = new HashMap<>();
+//        map.values().forEach(System.out::println);
+
+//        String s = "";
+//        String[] split = s.split(",");
+//        System.out.println(split.length);
+
+//        String s = "";
+//        List<String> strings = Arrays.stream(s.split(",")).collect(Collectors.toList());
+//        strings.add("1");
+//        System.out.println(strings);
+
+//        String urlEncode = null;
+//        try {
+//            urlEncode = URLEncoder.encode("https://scu-1258763073.cos.ap-beijing.myqcloud.com/temp/trends/1442842704576389121/storage/emulated/0/UCDownloads/pictures/aidu.com_image_search_src%3Dhttp%253A%252F%252Fpic2.zhimg.com%252F50%252Fv2-fd3ae186ffc01efba6bcb75b5e36765a_hd.jpg%26refer%3Dhttp%253A%252F%252Fpic2.zhimg.jpg", "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(urlEncode);
+
+//        System.out.println(Integer.MAX_VALUE);
+
+//        String s = null, s1 = null;
+//        try {
+//            s = URLDecoder.decode("ttp%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F24%2F20160724235805_jumHM.thumb.400_0.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.jpg", "UTF-8");
+//            s1 = URLDecoder.decode("http%25253A%25252F%25252Fwiki.rsdx.com%25252Fpages%25252Fviewpage.action%25253FpageId%25253D12550169", "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(s);
+//        System.out.println(s1);
+
+//        String s = "http%253A%252F%252Fwiki.rsdx.com%252Fpages%252Fviewpage.action%253FpageId%253D12550169";
+//        try {
+//            System.out.println(URLEncoder.encode(s, "UTF-8"));
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+
+//        try {
+//            boolean result = false;
+//            if (!result) {
+//                throw new Exception("结果不正常");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("=====异常");
+//        } finally {
+//            System.out.println(">>>>>>>>>>>>>finally");
+//        }
+
+//        List<String> list = new ArrayList<>();
+//        String join = String.join(",", list);
+//        System.out.println(join);
+
+//        Map<String, Double> map = new LinkedHashMap<>();
+//        for (int i = 0; i < 2000; i++) {
+//            map.put(String.valueOf(i), (double) i);
+//        }
+//        System.out.println(map.size());
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 2000; i++) {
+            list.add(String.valueOf(i));
+        }
+        Map<String, String> map = list.stream().collect(Collectors.toMap(k -> k, v -> v));
+        System.out.println(map.containsKey(new String("1")));
+        System.out.println(map.size());
 
 
     }
