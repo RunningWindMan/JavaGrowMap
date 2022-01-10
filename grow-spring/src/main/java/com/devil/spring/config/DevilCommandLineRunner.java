@@ -1,5 +1,6 @@
 package com.devil.spring.config;
 
+import com.devil.spring.bean.DevilBean;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,8 @@ public class DevilCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //        while (true) {
-//            System.out.println(System.currentTimeMillis());
+//            DevilBean bean = new DevilBean();
+//            bean.getCount();
 //            TimeUnit.MILLISECONDS.sleep(500);
 //        }
     }

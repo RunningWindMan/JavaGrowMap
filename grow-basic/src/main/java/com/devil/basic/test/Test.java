@@ -1,5 +1,7 @@
 package com.devil.basic.test;
 
+import com.google.gson.Gson;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -105,15 +107,61 @@ public class Test {
 //        }
 //        System.out.println(map.size());
 
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 2000; i++) {
-            list.add(String.valueOf(i));
+//        List<String> list = new ArrayList<>();
+//        for (int i = 0; i < 2000; i++) {
+//            list.add(String.valueOf(i));
+//        }
+//        Map<String, String> map = list.stream().collect(Collectors.toMap(k -> k, v -> v));
+//        System.out.println(map.containsKey(new String("1")));
+//        System.out.println(map.size());
+
+//        String binaryString = "1010001100100110000100001000010000100001000001000010000100000100001000010000100010010100000";
+//        System.out.println();
+
+//        Double d = -200D;
+//        System.out.println(0 - d);
+
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        Integer result = list.stream().reduce((a1, a2) -> a1 - a2 > 0 ? a1 : a2).orElseGet(() -> new Integer("2222"));
+//        System.out.println(result);
+
+
+        List list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
+        List pageList = startPage(list, 3, 3);
+        System.out.println(new Gson().toJson(pageList));
+    }
+
+    public static List startPage(List list, Integer pageNum, Integer pageSize) {
+        if (list == null) {
+            return null;
         }
-        Map<String, String> map = list.stream().collect(Collectors.toMap(k -> k, v -> v));
-        System.out.println(map.containsKey(new String("1")));
-        System.out.println(map.size());
+        if (list.size() == 0) {
+            return null;
+        }
 
+        Integer count = list.size(); // 记录总数
+        Integer pageCount = 0; // 页数
+        if (count % pageSize == 0) {
+            pageCount = count / pageSize;
+        } else {
+            pageCount = count / pageSize + 1;
+        }
 
+        int fromIndex = 0; // 开始索引
+        int toIndex = 0; // 结束索引
+
+        if (pageNum != pageCount) {
+            fromIndex = (pageNum - 1) * pageSize;
+            toIndex = fromIndex + pageSize;
+        } else {
+            fromIndex = (pageNum - 1) * pageSize;
+            toIndex = count;
+        }
+
+        List pageList = list.subList(fromIndex, toIndex);
+
+        return pageList;
     }
 
 }

@@ -8,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.ZSetOperations;
+
+import java.util.Set;
 
 /**
  * kafka测试
@@ -32,7 +35,21 @@ public class RedisTest {
 
     @Test
     public void test2() {
-        redisUtil.zRemove("recommend-" + 11111, "95", "94");
+//        redisUtil.zRemove("recommend-" + 11111, "95", "94");
+        for (int i = 0; i<100; i++) {
+            redisUtil.zAdd("memberList", i, i);
+        }
+    }
+
+    @Test
+    public void test3() {
+        Long zSize = redisUtil.zSize("memberList");
+        log.info("长度: {}", zSize);
+        int start = 800;
+        Set<ZSetOperations.TypedTuple<Object>> memberList = redisUtil.zReverseRangeWithScores("memberList", start, start + 2);
+        for (ZSetOperations.TypedTuple<Object> e : memberList) {
+            System.out.println(e.getScore() + "-" + e.getValue());
+        }
     }
 
 }
