@@ -9,6 +9,7 @@
         <module>grow-initializer</module>
         <module>grow-listener</module>
         <module>grow-netty</module>
+        <module>grow-nacos-example</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,10 +1,22 @@
 package com.devil.basic.test;
 
 import com.google.gson.Gson;
+import org.apache.commons.codec.Charsets;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -127,9 +139,11 @@ public class Test {
 //        System.out.println(result);
 
 
-        List list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
-        List pageList = startPage(list, 3, 3);
-        System.out.println(new Gson().toJson(pageList));
+//        List list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
+//        List pageList = startPage(list, 3, 3);
+//        System.out.println(new Gson().toJson(pageList));
+
+        httpTest();
     }
 
     public static List startPage(List list, Integer pageNum, Integer pageSize) {
@@ -162,6 +176,23 @@ public class Test {
         List pageList = list.subList(fromIndex, toIndex);
 
         return pageList;
+    }
+
+    public static void httpTest() {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost("http://scu-test-api.rsdx.com/partner/admin/dict/post/add");
+        for (int i = 4; i < 301; i++) {
+            String requestBody = "{\"requestInfo\":{\"postName\":\"批量职位" + i + "\",\"postCategoryId\":[\"1367291689479835649\"],\"seq\":\"" + i + "\",\"invalid\":\"0\"},\"clientInfo\":{\"clientVersion\":\"v1\",\"clientVersionCode\":\"1\",\"platform\":\"ADMIN\"},\"deviceInfo\":{\"deviceKey\":\"1\",\"deviceName\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55\",\"deviceType\":\"Chrome\",\"systemType\":\"Windows\",\"systemVersion\":\"10.0\"},\"userInfo\":{\"userId\":\"1406908482991251458\",\"userName\":\"18500646527\",\"universityId\":\"1000165\",\"userType\":1}}";
+            httpPost.setHeader(new BasicHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVUaW1lIjoiMTY0MjE1MTU3Mjk5MyIsImlkZW50aXR5IjoiMTQwNjkwODQ4Mjk5MTI1MTQ1OCIsInRlbmFudElkIjoiMTAwMDE2NSIsImVtcGxveWVlSWQiOiIxNDA2OTA4Njk0OTE1NjYxODI1IiwidXNlck5hbWUiOiIxODUwMDY0NjUyNyIsInVzZXJSb2xlIjoidW5pdmVyc2l0eV9sZWFkZXIiLCJ0b2tlblR5cGUiOiIyIiwiZXhwIjoxNjQyMTczMTcyLCJwbGF0Zm9ybSI6IkJVU0lORVNTX0FETUlOIn0.ebBri7N9Cr95mAnpyNfEgYrRIW1F61rNRGIZlz9lQrU"));
+            httpPost.setHeader(new BasicHeader("Content-Type", "application/json;charset=UTF-8"));
+            httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+            try {
+                CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
+                System.out.println("创建职位 " + i + " 结果：" + EntityUtils.toString(httpResponse.getEntity()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
