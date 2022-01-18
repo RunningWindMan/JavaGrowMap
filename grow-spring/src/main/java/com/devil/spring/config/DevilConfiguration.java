@@ -60,7 +60,9 @@ public class DevilConfiguration {
             registry.registerBeanDefinition(BEAN_POST_PROCESSOR_NAME, beanDefinition);
             registry.registerBeanDefinition(REGISTRY_BEAN_NAME, new RootBeanDefinition(DevilBeanDefinitionRegistryPostProcessor.class));
             registry.registerBeanDefinition(BEAN_FACTORY_BEAN_NAME, new RootBeanDefinition(DevilBeanFactoryPostProcessor.class));
-            registry.registerBeanDefinition("devilBean", new RootBeanDefinition(DevilBean.class));
+            RootBeanDefinition devilBeanDefinition = new RootBeanDefinition(DevilBean.class);
+            devilBeanDefinition.setInitMethodName("init");
+            registry.registerBeanDefinition("devilBean", devilBeanDefinition);
         }
     }
 
