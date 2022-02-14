@@ -50,13 +50,15 @@ public class RabbitMqTest {
 
     @Test
     public void testDirectMessage() {
-        Map<String, Object> map = new HashMap<>();
         Random random = new Random();
-        int i = random.nextInt(1000);
-        map.put("id", System.currentTimeMillis());
-        map.put("time", DateUtil.fastDateTimeFormat(new Date()));
-        map.put("name", "devil" + i);
-        rabbitTemplate.convertAndSend("amq.direct", "test", map);
+        for (int i = 0; i < 5; i++) {
+            Map<String, Object> map = new HashMap<>();
+            int index = random.nextInt(1000);
+            map.put("id", System.currentTimeMillis());
+            map.put("time", DateUtil.fastDateTimeFormat(new Date()));
+            map.put("name", "devil" + index);
+            rabbitTemplate.convertAndSend("amq.direct", "test", map);
+        }
     }
 
     @Test
