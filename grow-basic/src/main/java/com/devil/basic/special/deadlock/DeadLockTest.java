@@ -19,8 +19,11 @@ class DeadLock extends Thread {
 
     private int flag;
 
-    static Object x1 = new Object();
-    static Object x2 = new Object();
+    /**
+     * 声明为static是为了获取类锁   否则是对象锁
+     */
+    private static Object x1 = new Object();
+    private static Object x2 = new Object();
 
     public DeadLock(int flag) {
         this.flag = flag;

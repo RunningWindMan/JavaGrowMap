@@ -104,7 +104,7 @@ public class HeapTest {
     }
 
     public void buildHighestHeap(int[] a, int heapLength) {
-        // 从后往前看，lengthParent - 1处的元素是第一个有孩子节点的节点
+        // 从后往前看，lengthParent/2处的元素是第一个有孩子节点的节点
         int lengthParent = parent(heapLength - 1);
         // 最初，parent(length)之后的所有元素都是叶子结点；
         // 因为大于length/2处元素的孩子节点如果存在，那么
