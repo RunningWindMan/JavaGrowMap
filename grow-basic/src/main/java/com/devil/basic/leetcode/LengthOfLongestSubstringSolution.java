@@ -20,6 +20,7 @@ public class LengthOfLongestSubstringSolution {
                 start = Math.max(subStringMap.get(c), start);
             }
             result = Math.max(result, end - start + 1);
+            // 当字符重复时，start需要移动一位，所以散列表存储的是移动后的位置
             subStringMap.put(c, end + 1);
         }
         return result;

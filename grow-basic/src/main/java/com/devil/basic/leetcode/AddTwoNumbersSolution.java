@@ -12,18 +12,18 @@ public class AddTwoNumbersSolution {
     /**
      * 递归用的进位
      */
-    private int forward1 = 0;
+    private static int forward1 = 0;
 
-    public ListNode solutionOne(ListNode l1, ListNode l2) {
+    public static ListNode solutionOne(ListNode l1, ListNode l2) {
         if (l1 == null && l2 == null && forward1 == 0) {
             return null;
         }
-        int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + this.forward1;
-        this.forward1 = sum / 10;
+        int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + forward1;
+        forward1 = sum / 10;
         return new ListNode(sum % 10, solutionOne(l1 == null ? null : l1.next, l2 == null ? null : l2.next));
     }
 
-    public ListNode solutionTwo(ListNode l1, ListNode l2) {
+    public static ListNode solutionTwo(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
         int forward2 = 0;
         while (l1 != null || l2 != null) {
@@ -32,9 +32,10 @@ public class AddTwoNumbersSolution {
 
             if (head == null) {
                 head = tail = new ListNode(sum % 10);
+            } else {
+                tail.next = new ListNode(sum % 10);
+                tail = tail.next;
             }
-            tail.next = new ListNode(sum % 10);
-            tail = tail.next;
 
             if (l1 != null) {
                 l1 = l1.next;
@@ -50,7 +51,7 @@ public class AddTwoNumbersSolution {
         return head;
     }
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -65,6 +66,31 @@ public class AddTwoNumbersSolution {
             this.val = val;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            return "ListNode{" +
+                    "val=" + val +
+                    ", next=" + next +
+                    '}';
+        }
+    }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(7);
+        ListNode node2 = new ListNode(6, node1);
+        ListNode node3 = new ListNode(8, node2);
+
+        ListNode node4 = new ListNode(3);
+        ListNode node5 = new ListNode(6, node4);
+        ListNode node6 = new ListNode(5, node5);
+
+        System.out.println(node3);
+        System.out.println(node6);
+        ListNode root = solutionTwo(node3, node6);
+        System.out.println(root);
+        ListNode root2 = solutionOne(node3, node6);
+        System.out.println(root2);
     }
 
 }
