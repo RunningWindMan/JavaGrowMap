@@ -41,8 +41,8 @@ public class MergeSort implements Sort {
             } else {
                 temp[k++] = a[j++];
             }
-
         }
+
         while (i <= mid) {
             temp[k++] = a[i++];
         }

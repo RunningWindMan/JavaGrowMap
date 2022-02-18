@@ -104,13 +104,8 @@ public class HeapTest {
     }
 
     public void buildHighestHeap(int[] a, int heapLength) {
-        // 从后往前看，lengthParent/2处的元素是第一个有孩子节点的节点
+        // 从后往前看，（heapLength - 1 - 1）/2 处之后的所有元素都是叶子结点，所以找到最后一个元素的父节点，向前构成大顶堆
         int lengthParent = parent(heapLength - 1);
-        // 最初，parent(length)之后的所有元素都是叶子结点；
-        // 因为大于length/2处元素的孩子节点如果存在，那么
-        // 它们的数组下标值必定大于length，这与事实不符；
-        // 在数组中，孩子元素必定在父亲元素的后面，从后往前
-        // 对元素调用highestHeap，保证了元素的孩子都是大根堆
         for (int i = lengthParent; i >= 0; i--) {
             highestHeap(a, i, heapLength);
         }
