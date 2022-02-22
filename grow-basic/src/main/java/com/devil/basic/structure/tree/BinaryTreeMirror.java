@@ -2,6 +2,7 @@ package com.devil.basic.structure.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 二叉树镜像
@@ -24,15 +25,14 @@ public class BinaryTreeMirror {
         node2.right = node5;
         node3.left = node6;
 
-//        BinaryTreeLoop.preLoop(node1);
-//        BinaryTreeLoop.preLoop2(node1);
-//        System.out.println();
-
 //        TreeNode recursionSolution = recursionSolution(node1);
 //        BinaryTreeLoop.preLoop(recursionSolution);
 
-        TreeNode noRecursionSolution = noRecursionSolution(node1);
-        BinaryTreeLoop.preLoop(noRecursionSolution);
+//        TreeNode noRecursionSolution = noRecursionSolution(node1);
+//        BinaryTreeLoop.preLoop(noRecursionSolution);
+
+        TreeNode noRecursionSolution2 = noRecursionSolution2(node1);
+        BinaryTreeLoop.preLoop(noRecursionSolution2);
     }
 
     /**
@@ -51,7 +51,7 @@ public class BinaryTreeMirror {
     }
 
     /**
-     * 非递归解法
+     * 非递归解法  队列
      */
     public static TreeNode noRecursionSolution(TreeNode node) {
         Queue<TreeNode> queue = new LinkedList<>();
@@ -68,6 +68,30 @@ public class BinaryTreeMirror {
 
             if (head.right != null) {
                 queue.offer(head.right);
+            }
+        }
+        return node;
+    }
+
+    /**
+     * 非递归解法  栈
+     */
+    public static TreeNode noRecursionSolution2(TreeNode node) {
+        if (node == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(node);
+        while (!stack.isEmpty()) {
+            TreeNode pop = stack.pop();
+            TreeNode left = pop.left;
+            pop.left = pop.right;
+            pop.right = left;
+            if (pop.left != null) {
+                stack.push(pop.left);
+            }
+            if (pop.right != null) {
+                stack.push(pop.right);
             }
         }
         return node;
