@@ -25,14 +25,14 @@ public class BinaryTreeMirror {
         node3.left = node6;
 
 //        BinaryTreeLoop.preLoop(node1);
-        BinaryTreeLoop.preLoop2(node1);
-        System.out.println();
+//        BinaryTreeLoop.preLoop2(node1);
+//        System.out.println();
 
 //        TreeNode recursionSolution = recursionSolution(node1);
 //        BinaryTreeLoop.preLoop(recursionSolution);
 
-//        TreeNode noRecursionSolution = noRecursionSolution(node1);
-//        BinaryTreeLoop.preLoop(noRecursionSolution);
+        TreeNode noRecursionSolution = noRecursionSolution(node1);
+        BinaryTreeLoop.preLoop(noRecursionSolution);
     }
 
     /**
@@ -55,7 +55,7 @@ public class BinaryTreeMirror {
      */
     public static TreeNode noRecursionSolution(TreeNode node) {
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(node);
+        queue.offer(node);
         while (!queue.isEmpty()) {
             TreeNode head = queue.poll();
             TreeNode left = head.left;
