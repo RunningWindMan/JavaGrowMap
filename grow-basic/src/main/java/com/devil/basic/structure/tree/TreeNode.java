@@ -1,6 +1,8 @@
 package com.devil.basic.structure.tree;
 
 /**
+ * 二叉树节点
+ *
  * @author Devil
  * @date Created in 2021/7/23 16:06
  */

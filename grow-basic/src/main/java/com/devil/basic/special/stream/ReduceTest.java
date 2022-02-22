@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 使用reduce对流中元素累积计算，最后得到一个值
+ *
  * @author Devil
  * @date Created in 2021/7/27 17:14
  */

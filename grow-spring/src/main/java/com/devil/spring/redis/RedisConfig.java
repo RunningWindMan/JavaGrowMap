@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -108,7 +107,6 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
     }
-
 
     @Bean(value = "stringRedisTemplate")
     @ConditionalOnBean(RedisConnectionFactory.class)
