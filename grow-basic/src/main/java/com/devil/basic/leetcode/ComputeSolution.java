@@ -35,7 +35,7 @@ public class ComputeSolution {
                     num.set(j, data);
                     inc = forward;
                 }
-                // 如果进位数大于零，那么进位数需要加入链表，进行下次计算
+                // 如果进位数大于零，那么进位数需要加入数组，进行下次计算
                 if (inc > 0) {
                     num.add(inc);
                 }
