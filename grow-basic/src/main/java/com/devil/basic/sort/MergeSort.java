@@ -1,6 +1,8 @@
 package com.devil.basic.sort;
 
 /**
+ * 归并排序
+ *
  * @author Devil
  * @date Created in 2021/7/16 21:06
  */

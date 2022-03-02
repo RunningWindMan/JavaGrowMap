@@ -21,7 +21,7 @@ public class HeapSort implements Sort {
         HeapTest heap = new HeapTest();
         heap.buildHighestHeap(a, n);
 
-        // 调整堆结构+交换堆顶元素与末尾元素
+        // 调整堆结构+交换堆顶元素与末尾元素 i>0目的是断开交换前的堆尾元素
         for (int i = n - 1; i > 0; i--) {
             // 将堆顶元素与末尾元素进行交换
             int temp = a[i];
