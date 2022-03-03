@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @author Devil
  * @date Created in 2021/12/9 11:29
  */
-@Component
+//@Component
 public class RabbitMqConsumer {
 
     private static final Logger log = LoggerFactory.getLogger(RabbitMqConsumer.class);

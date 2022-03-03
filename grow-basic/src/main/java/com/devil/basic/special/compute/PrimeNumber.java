@@ -12,7 +12,7 @@ public class PrimeNumber {
 
     public static void main(String[] args) {
         int n = 100;
-        BitSet b = new BitSet(n + 1);
+        BitSet b = new BitSet(n);
         int i;
         // 默认0和1都是素数
         for (i = 2; i <= n; i++) {

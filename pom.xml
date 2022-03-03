@@ -10,6 +10,7 @@
         <module>grow-listener</module>
         <module>grow-netty</module>
         <module>grow-nacos-example</module>
+        <module>grow-id-generator</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

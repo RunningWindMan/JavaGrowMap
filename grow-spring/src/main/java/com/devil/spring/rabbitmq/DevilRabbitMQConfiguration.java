@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Devil
  * @date Created in 2021/12/9 10:34
  */
-@Configuration
+//@Configuration
 public class DevilRabbitMQConfiguration {
 
     @Bean
