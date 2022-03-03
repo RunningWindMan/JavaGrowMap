@@ -144,6 +144,13 @@ public class Test {
 //        System.out.println(new Gson().toJson(pageList));
 
 //        httpTest();
+
+        // 排序
+        int [] a = {1, -1, 0};
+        Arrays.sort(a);
+        for (int i : a) {
+            System.out.println(i);
+        }
     }
 
     public static List startPage(List list, Integer pageNum, Integer pageSize) {
