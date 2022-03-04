@@ -7,8 +7,9 @@ package com.devil.rpc;
 public class DevilRpcServiceImpl implements IDevilRpcService {
 
     @Override
-    public void hello() {
+    public String hello() {
         System.out.println("Devil RPC Service!");
+        return "Devil RPC Success!";
     }
 
 }

@@ -13,25 +13,20 @@ import java.net.Socket;
  */
 public class DevilRpcClient<T> {
 
-    public <T>  T proxyClient(Class<T> clazz, int port) {
-        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[] {clazz}, new InvocationHandler() {
-
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                try (Socket socket = new Socket("localhost", port)) {
-                    try (ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream())) {
-                        // 传方法名
-                        oos.writeUTF(method.getName());
-                        // 传参数类型
-                        oos.writeObject(method.getParameterTypes());
-                        // 传参数值
-                        oos.writeObject(args);
-                        ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
-                        // 读取结果
-                        Object result = input.readObject();
-                        return result;
-                    }
-                }
+    public <T> T proxyClient(Class<T> clazz, int port) {
+        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, (proxy, method, args) -> {
+            try (Socket socket = new Socket("localhost", port)) {
+                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                // 传方法名
+                oos.writeUTF(method.getName());
+                // 传参数类型
+                oos.writeObject(method.getParameterTypes());
+                // 传参数值
+                oos.writeObject(args);
+                ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
+                // 读取结果
+                Object result = input.readObject();
+                return result;
             }
         });
     }
@@ -39,7 +34,7 @@ public class DevilRpcClient<T> {
     public static void main(String[] args) {
         DevilRpcClient<IDevilRpcService> client = new DevilRpcClient<>();
         IDevilRpcService rpcService = client.proxyClient(IDevilRpcService.class, 22222);
-        rpcService.hello();
+        System.out.println(rpcService.hello());
     }
 
 }

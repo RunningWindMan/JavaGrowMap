@@ -6,6 +6,6 @@ package com.devil.rpc;
  */
 public interface IDevilRpcService {
 
-    void hello();
+    String hello();
 
 }
