@@ -11,6 +11,7 @@
         <module>grow-netty</module>
         <module>grow-nacos-example</module>
         <module>grow-id-generator</module>
+        <module>grow-rpc</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
