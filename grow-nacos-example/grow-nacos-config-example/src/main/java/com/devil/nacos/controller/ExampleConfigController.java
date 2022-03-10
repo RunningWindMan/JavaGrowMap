@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * nacos配置中心测试样例
+ *
  * @author Devil
  * @date Created in 2022/1/17 14:51
  */
 @RestController
 @RequestMapping(value = "example")
-public class ExampleController {
+public class ExampleConfigController {
 
     @NacosValue(value = "${nacos.example.data:1}", autoRefreshed = true)
     private String nacosData;

@@ -1,0 +1,9 @@
+nacos:
+  discovery:
+    server-addr: 172.19.0.50:8848
+    namespace: devil-namespace
+spring:
+  application:
+    name: grow-nacos-discovery-consumer
+server:
+  port: 9989
