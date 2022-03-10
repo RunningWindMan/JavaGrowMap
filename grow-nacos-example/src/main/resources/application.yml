@@ -2,12 +2,12 @@ nacos:
   config:
     bootstrap:
       enable: true
-    server-addr: 127.0.0.1:8848
+    server-addr: 172.19.0.50:8848
     remote-first: true
-    data-ids: devilService,runningService
-    namespace: runningwind
+    data-ids: nacos-example
+    namespace: devil-namespace
     group: DEFAULT_GROUP
-    type: properties
+    type: yaml
     auto-refresh: true
     max-retry: 10
     config-retry-time: 2000
@@ -17,6 +17,6 @@ nacos:
     password: nacos
 spring:
   application:
-    name: devil-nacos
+    name: nacos-example
 server:
   port: 9999

@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "example")
 public class ExampleController {
 
-    @NacosValue(value = "${data:1}", autoRefreshed = true)
+    @NacosValue(value = "${nacos.example.data:1}", autoRefreshed = true)
     private String nacosData;
 
     @Value("${data:666}")
     private String springData;
 
-    @GetMapping(name = "get")
+    @GetMapping(value = "get")
     public String testGet() {
         return nacosData + "-" + springData;
     }
