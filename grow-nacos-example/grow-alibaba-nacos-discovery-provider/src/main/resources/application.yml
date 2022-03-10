@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: grow-alibaba-nacos-discovery-provider
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 172.19.0.50:8848
+        namespace: devil-namespace
+server:
+  port: 8991
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
