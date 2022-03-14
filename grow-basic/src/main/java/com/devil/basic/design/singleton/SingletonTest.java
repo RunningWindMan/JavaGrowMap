@@ -4,7 +4,7 @@ package com.devil.basic.design.singleton;
  * 单例测试
  * 饿汉模式（没有懒加载）
  * 懒汉模式
- * 嵌套静态类（存在序列化和反射攻击问题）
+ * 嵌套静态类（存在序列化和反射攻击问题）  序列化攻击增加readResolve可以防止破坏   单例攻击注意构造方法
  *
  * @author Devil
  * @date Created in 2021/7/13 11:37
