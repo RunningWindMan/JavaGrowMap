@@ -21,6 +21,7 @@
         <module>grow-nacos-discovery-example-consumer</module>
         <module>grow-alibaba-nacos-discovery-provider</module>
         <module>grow-alibaba-nacos-discovery-consumer</module>
+        <module>grow-cloud-gateway-nacos-discovery-provider</module>
     </modules>
 
     <properties>

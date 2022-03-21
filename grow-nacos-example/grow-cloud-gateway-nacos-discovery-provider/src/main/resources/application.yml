@@ -1,0 +1,22 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: grow-cloud-gateway-nacos-discovery
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowCredentials: true
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 172.19.0.50:8848
+        namespace: openapi
