@@ -73,13 +73,13 @@ public class SemaphoreTest {
     static class Producer implements Runnable {
         private SemaphoreTest cache;
 
-        public Producer(SemaphoreTest cache){
+        public Producer(SemaphoreTest cache) {
             this.cache = cache;
         }
 
         @Override
         public void run() {
-            while(true){
+            while (true) {
                 try {
                     cache.produce();
                     Thread.sleep(1000);
@@ -97,10 +97,10 @@ public class SemaphoreTest {
         Consumer c = new Consumer(cache);
 
         int producerCount = 4, consumerCount = 4;
-        for (int i = 0; i < producerCount; i++){
+        for (int i = 0; i < producerCount; i++) {
             new Thread(p).start();
         }
-        for (int i = 0; i < consumerCount; i++){
+        for (int i = 0; i < consumerCount; i++) {
             new Thread(c).start();
         }
     }

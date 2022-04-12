@@ -1,0 +1,43 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        group: SEATA_GROUP
+        namespace: seata
+  datasource:
+    hikari:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/seata-example?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+      password: root
+      username: root
+seata:
+  enabled: true
+  service:
+    disable-global-transaction: false
+    grouplist:
+      default: 127.0.0.1:8091
+    vgroup-mapping:
+      business-service: default
+  tx-service-group: business-service
+  registry:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      cluster: default
+      namespace: seata
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  config:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: seata
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos

@@ -29,8 +29,9 @@ public class LruTest {
 
     /**
      * lru design
+     *
      * @param operators int整型二维数组 the ops
-     * @param k int整型 the k
+     * @param k         int整型 the k
      * @return int整型一维数组
      */
     public int[] LRU(int[][] operators, int k) {

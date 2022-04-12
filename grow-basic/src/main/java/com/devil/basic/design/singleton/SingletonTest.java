@@ -21,6 +21,7 @@ public class SingletonTest {
      * 饿汉模式
      */
     private static SingletonTest instanceA = new SingletonTest();
+
     public static SingletonTest getInstanceA() {
         return instanceA;
     }
@@ -29,6 +30,7 @@ public class SingletonTest {
      * 懒汉模式
      */
     private static volatile SingletonTest instanceB;
+
     public static SingletonTest getInstanceB() {
         if (instanceB == null) {
             synchronized (SingletonTest.class) {
@@ -46,6 +48,7 @@ public class SingletonTest {
     private static class SingletonHolder {
         private static SingletonTest instanceC = new SingletonTest();
     }
+
     public static SingletonTest getInstanceC() {
         return SingletonHolder.instanceC;
     }

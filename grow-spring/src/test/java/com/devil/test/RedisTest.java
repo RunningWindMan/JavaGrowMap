@@ -36,7 +36,7 @@ public class RedisTest {
     @Test
     public void test2() {
 //        redisUtil.zRemove("recommend-" + 11111, "95", "94");
-        for (int i = 0; i<100; i++) {
+        for (int i = 0; i < 100; i++) {
             redisUtil.zAdd("memberList", i, i);
         }
     }

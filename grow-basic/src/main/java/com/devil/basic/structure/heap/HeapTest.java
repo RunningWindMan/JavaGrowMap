@@ -4,16 +4,16 @@ package com.devil.basic.structure.heap;
  * 堆测试
  * 完全二叉树：
  * <blockquote>
- *        7
- *        <br>
- *    8       9
- *    <br>
+ * 7
+ * <br>
+ * 8       9
+ * <br>
  * 12  13  11
  * </blockquote>
  * <blockquote>
- *     ||
- *     <br>
- *     V
+ * ||
+ * <br>
+ * V
  * </blockquote>
  * <blockquote>
  * 数组： 7  8  9  12  13  11

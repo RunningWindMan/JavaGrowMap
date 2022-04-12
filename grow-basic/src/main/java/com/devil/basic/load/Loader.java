@@ -17,8 +17,7 @@ public class Loader extends LoaderParent {
 
     /**
      * 非静态块每次new执行一次  优先于构造函数
-     */
-    {
+     */ {
         System.out.println("load 非静态块加载 ===");
     }
 

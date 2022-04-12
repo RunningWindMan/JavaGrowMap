@@ -239,7 +239,7 @@ public class DateUtil {
         return calendar.getTime();
     }
 
-    public static String LongToDate(Long ml){
+    public static String LongToDate(Long ml) {
 
         Date date = new Date(ml);
 
@@ -347,7 +347,7 @@ public class DateUtil {
         //设置年份
         cal.set(Calendar.YEAR, year);
         //设置月份
-        cal.set(Calendar.MONTH, month-1);
+        cal.set(Calendar.MONTH, month - 1);
         //获取某月最大天数
         int lastDay = cal.getActualMaximum(Calendar.DATE);
         //设置日历中月份的最大天数

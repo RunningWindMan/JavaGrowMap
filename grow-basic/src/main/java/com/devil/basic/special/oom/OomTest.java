@@ -24,7 +24,7 @@ public class OomTest {
         Long i = 1L;
         // 需要持有对象，这样可达性判断才不会标记为需要清除
         List<OomBean> list = new LinkedList<>();
-        for(;;) {
+        for (; ; ) {
             OomBean oomBean = new OomBean(i, String.valueOf(i));
             System.out.println(oomBean.toString());
             list.add(oomBean);

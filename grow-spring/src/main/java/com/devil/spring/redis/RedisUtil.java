@@ -355,6 +355,7 @@ public class RedisUtil {
         redisScript.setResultType(Long.class);
         return stringRedisTemplate.execute(redisScript, Collections.singletonList(key));
     }
+
     /**
      * 自减
      *
@@ -363,6 +364,7 @@ public class RedisUtil {
     public Long decr(String key) {
         return stringRedisTemplate.opsForValue().decrement(key);
     }
+
     /**
      * 增加(自增长), 负数则为自减  浮点
      *
@@ -763,7 +765,7 @@ public class RedisUtil {
      */
     public Object lRightPopAndLeftPush(String sourceKey, String destinationKey) {
         return redisTemplate.opsForList().rightPopAndLeftPush(sourceKey,
-            destinationKey);
+                destinationKey);
     }
 
     /**
@@ -777,7 +779,7 @@ public class RedisUtil {
     public Object lBRightPopAndLeftPush(String sourceKey, String destinationKey,
                                         long timeout, TimeUnit unit) {
         return redisTemplate.opsForList().rightPopAndLeftPush(sourceKey,
-            destinationKey, timeout, unit);
+                destinationKey, timeout, unit);
     }
 
     /**
@@ -1329,16 +1331,16 @@ public class RedisUtil {
         return redisTemplate.opsForZSet().scan(key, options);
     }
 
-    public  void setRedisDataBase(int num){
+    public void setRedisDataBase(int num) {
 
         JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) stringRedisTemplate.getConnectionFactory();
-        int oldDataBase=jedisConnectionFactory.getDatabase();
-        LOGGER.info("[redisUtil] oldDataBase:{}",oldDataBase);
+        int oldDataBase = jedisConnectionFactory.getDatabase();
+        LOGGER.info("[redisUtil] oldDataBase:{}", oldDataBase);
         jedisConnectionFactory.setDatabase(num);
         stringRedisTemplate.setConnectionFactory(jedisConnectionFactory);
         jedisConnectionFactory.getDatabase();
-        int newDatabase=jedisConnectionFactory.getDatabase();
-        LOGGER.info("[redisUtil] newDataBase:{}",newDatabase);
+        int newDatabase = jedisConnectionFactory.getDatabase();
+        LOGGER.info("[redisUtil] newDataBase:{}", newDatabase);
 
     }
 

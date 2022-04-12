@@ -32,7 +32,7 @@ public class OomTestController {
         log.info("oom");
         Long i = 1L;
         List<String> list = new LinkedList<>();
-        for(;;) {
+        for (; ; ) {
             String s = String.valueOf(i);
             list.add(s);
             i++;

@@ -1,0 +1,3 @@
+# Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.devil.seata.config.MyBatisConfig

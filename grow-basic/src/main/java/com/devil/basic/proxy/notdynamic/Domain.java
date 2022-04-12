@@ -8,6 +8,7 @@ public interface Domain {
 
     /**
      * 获取方法
+     *
      * @return
      */
     String get();
