@@ -11,7 +11,7 @@ import java.net.Socket;
  * @date Created in 2022/3/4 14:45
  */
 public class DevilRpcServer {
-
+    
     public void publisherServer(Object service, int port) {
         try (ServerSocket ss = new ServerSocket(port)) {
             while (true) {
@@ -39,11 +39,11 @@ public class DevilRpcServer {
             e.printStackTrace();
         }
     }
-
+    
     public static void main(String[] args) {
         DevilRpcServer server = new DevilRpcServer();
         IDevilRpcService rpcService = new DevilRpcServiceImpl();
         server.publisherServer(rpcService, 22222);
     }
-
+    
 }

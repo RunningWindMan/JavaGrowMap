@@ -18,15 +18,15 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "oomTest")
 public class OomTestController {
-
+    
     private static final Logger log = LoggerFactory.getLogger(OomTestController.class);
-
+    
     @GetMapping(path = "hello")
     public String hello() {
         log.info("hello everyone!!");
         return "success";
     }
-
+    
     @GetMapping(path = "oom")
     public void oom() {
         log.info("oom");
@@ -38,5 +38,5 @@ public class OomTestController {
             i++;
         }
     }
-
+    
 }

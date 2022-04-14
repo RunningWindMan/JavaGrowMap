@@ -12,12 +12,16 @@ import java.math.BigDecimal;
 @Accessors(chain = true)
 @TableName("order_tbl")
 public class Order {
-
+    
     @TableId(type = IdType.AUTO)
     private Integer id;
+    
     private String userId;
+    
     private String commodityCode;
+    
     private Integer count;
+    
     private BigDecimal money;
-
+    
 }

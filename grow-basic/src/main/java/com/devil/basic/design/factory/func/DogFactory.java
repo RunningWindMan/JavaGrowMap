@@ -8,7 +8,7 @@ import com.devil.basic.design.factory.simple.Dog;
  * @date Created in 2021/7/22 14:18
  */
 public class DogFactory implements IAnimalFactory {
-
+    
     @Override
     public Animal create() {
         return new Dog();

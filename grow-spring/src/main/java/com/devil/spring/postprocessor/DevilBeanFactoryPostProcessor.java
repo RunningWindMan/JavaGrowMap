@@ -11,9 +11,9 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
  * @date Created in 2021/7/28 10:13
  */
 public class DevilBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilBeanFactoryPostProcessor.class);
-
+    
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         log.info("postProcessBeanFactory++++++++++");

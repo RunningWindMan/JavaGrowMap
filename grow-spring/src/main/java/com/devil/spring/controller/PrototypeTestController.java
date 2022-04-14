@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "prototypeTest")
 public class PrototypeTestController {
-
+    
     @Autowired
     private PrototypeBean prototypeBean;
-
+    
     @GetMapping(path = "prototypeByAutowired")
     public Integer prototypeTest() {
         return prototypeBean.getCode();
     }
-
+    
 }

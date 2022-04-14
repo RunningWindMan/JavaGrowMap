@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DevilComponent {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilComponent.class);
-
+    
     @Bean
     public DevilComponentBean devilComponentBean() {
         log.info("devil component bean config =======");
         return new DevilComponentBean();
     }
-
+    
 }

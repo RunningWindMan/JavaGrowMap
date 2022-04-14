@@ -9,10 +9,10 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("stock")
 public class StockController {
-
+    
     @Resource
     private StockService stockService;
-
+    
     /**
      * 减库存
      *
@@ -25,5 +25,5 @@ public class StockController {
         stockService.deduct(commodityCode, count);
         return true;
     }
-
+    
 }

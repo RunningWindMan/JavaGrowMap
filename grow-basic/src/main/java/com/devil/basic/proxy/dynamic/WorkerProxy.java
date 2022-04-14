@@ -9,13 +9,13 @@ import java.lang.reflect.Proxy;
  * @date Created in 2021/7/15 16:05
  */
 public class WorkerProxy implements InvocationHandler {
-
+    
     private Object worker;
-
+    
     public WorkerProxy(Object worker) {
         this.worker = worker;
     }
-
+    
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("proxy start ==== ++++");
@@ -23,11 +23,12 @@ public class WorkerProxy implements InvocationHandler {
         System.out.println("proxy end ==== ++++");
         return null;
     }
-
+    
     public static void main(String[] args) {
         SimpleWorker simpleWorker = new SimpleWorker();
         InvocationHandler invocationHandler = new WorkerProxy(simpleWorker);
-        Worker worker = (Worker) Proxy.newProxyInstance(SimpleWorker.class.getClassLoader(), SimpleWorker.class.getInterfaces(), invocationHandler);
+        Worker worker = (Worker) Proxy.newProxyInstance(SimpleWorker.class.getClassLoader(),
+                SimpleWorker.class.getInterfaces(), invocationHandler);
         worker.work();
     }
 }

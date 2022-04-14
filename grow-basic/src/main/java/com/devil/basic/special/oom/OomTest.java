@@ -10,13 +10,13 @@ import java.util.List;
  * @date Created in 2021/7/28 9:03
  */
 public class OomTest {
-
+    
     public static void main(String[] args) {
         OomTest test = new OomTest();
-//        test.oomTest();
+        //        test.oomTest();
         test.stackOverFlowTest(1);
     }
-
+    
     /**
      * Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
      */
@@ -31,13 +31,13 @@ public class OomTest {
             i++;
         }
     }
-
+    
     /**
      * Exception in thread "main" java.lang.StackOverflowError
      */
     public int stackOverFlowTest(int n) {
         return stackOverFlowTest(n);
     }
-
-
+    
+    
 }

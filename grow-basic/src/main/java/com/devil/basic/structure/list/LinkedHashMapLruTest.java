@@ -11,19 +11,19 @@ import java.util.Map;
  * @date Created in 2021/7/8 10:16
  */
 public class LinkedHashMapLruTest<K, V> extends LinkedHashMap<K, V> {
-
+    
     private int capacity;
-
+    
     public LinkedHashMapLruTest(int capacity) {
         super(16, 0.75f, true);
         this.capacity = capacity;
     }
-
+    
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return size() > capacity;
     }
-
+    
     public static void main(String[] args) {
         Map<Integer, Integer> map = new LinkedHashMap<>(10, 0.75f, true);
         map.put(9, 3);
@@ -36,9 +36,9 @@ public class LinkedHashMapLruTest<K, V> extends LinkedHashMap<K, V> {
         for (Iterator<Map.Entry<Integer, Integer>> it = map.entrySet().iterator(); it.hasNext(); ) {
             System.out.println(it.next().getKey());
         }
-
+        
         System.out.println("================");
-
+        
         LinkedHashMapLruTest<Integer, Integer> lru = new LinkedHashMapLruTest<>(3);
         lru.put(9, 3);
         lru.put(7, 4);
@@ -48,5 +48,5 @@ public class LinkedHashMapLruTest<K, V> extends LinkedHashMap<K, V> {
             System.out.println(it.next().getKey());
         }
     }
-
+    
 }

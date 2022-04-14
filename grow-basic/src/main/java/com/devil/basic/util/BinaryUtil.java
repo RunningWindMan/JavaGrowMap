@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @date Created in 2021/12/17 16:46
  */
 public class BinaryUtil {
-
+    
     /**
      * 将二进制整数部分转换成十进制
      *
@@ -36,7 +36,7 @@ public class BinaryUtil {
         }
         return inteterSum;
     }
-
+    
     /**
      * 将二进制小数部分转换成十进制
      *
@@ -63,7 +63,7 @@ public class BinaryUtil {
         }
         return decimalsSum;
     }
-
+    
     /**
      * 将二进制转换成十进制
      *
@@ -79,8 +79,7 @@ public class BinaryUtil {
         if (BinaryUtil.isBinary(binary)) {
             if (BinaryUtil.isContainsPoint(binary)) {
                 integer = binary.substring(0, binary.indexOf("."));
-                decimals = binary.substring(binary.indexOf(".") + 1,
-                        binary.length());
+                decimals = binary.substring(binary.indexOf(".") + 1, binary.length());
                 integerSum = BinaryUtil.binaryIntToDecimalism(integer);
                 decimalsSum = BinaryUtil.binaryDecToDecimalism(decimals);
                 sum = String.valueOf(integerSum + decimalsSum);
@@ -93,7 +92,7 @@ public class BinaryUtil {
         }
         return sum;
     }
-
+    
     /**
      * 将二进制整数部分转换成八进制
      *
@@ -111,18 +110,15 @@ public class BinaryUtil {
         String binary = "";
         for (int i = 1; i <= loop; i++) {
             if (i != loop) {
-                binary = integer.substring(integer.length() - i * 3,
-                        integer.length() - i * 3 + 3);
+                binary = integer.substring(integer.length() - i * 3, integer.length() - i * 3 + 3);
             } else {
-                binary = BinaryUtil.appendZero(
-                        integer.substring(0, integer.length() - (i - 1) * 3),
-                        3, true);
+                binary = BinaryUtil.appendZero(integer.substring(0, integer.length() - (i - 1) * 3), 3, true);
             }
             integerSum.append(BinaryUtil.binaryIntToDecimalism(binary));
         }
         return integerSum.reverse().toString();
     }
-
+    
     /**
      * 将二进制小数部分转换成八进制
      *
@@ -142,14 +138,13 @@ public class BinaryUtil {
             if (i != loop) {
                 binary = decimals.substring(3 * (i - 1), 3 * (i - 1) + 3);
             } else {
-                binary = BinaryUtil.appendZero(decimals.substring(3 * (i - 1)),
-                        3, false);
+                binary = BinaryUtil.appendZero(decimals.substring(3 * (i - 1)), 3, false);
             }
             decimalsSum.append(BinaryUtil.binaryIntToDecimalism(binary));
         }
         return decimalsSum.toString();
     }
-
+    
     /**
      * 将二进制转换成八进制
      *
@@ -166,8 +161,7 @@ public class BinaryUtil {
             if (BinaryUtil.isContainsPoint(binary)) {
                 integer = binary.substring(0, binary.indexOf("."));
                 point = ".";
-                decimals = binary.substring(binary.indexOf(".") + 1,
-                        binary.length());
+                decimals = binary.substring(binary.indexOf(".") + 1, binary.length());
                 integerSum = BinaryUtil.binaryIntToOctal(integer);
                 decimalsSum = BinaryUtil.binaryDecToOctal(decimals);
             } else {
@@ -180,7 +174,7 @@ public class BinaryUtil {
         sum = sum.append(integerSum).append(point).append(decimalsSum);
         return sum.toString();
     }
-
+    
     /**
      * 将二进制整数部分转换成十六进制
      *
@@ -198,19 +192,15 @@ public class BinaryUtil {
         String binary = "";
         for (int i = 1; i <= loop; i++) {
             if (i != loop) {
-                binary = integer.substring(integer.length() - i * 4,
-                        integer.length() - i * 4 + 4);
+                binary = integer.substring(integer.length() - i * 4, integer.length() - i * 4 + 4);
             } else {
-                binary = BinaryUtil.appendZero(
-                        integer.substring(0, integer.length() - (i - 1) * 4),
-                        4, true);
+                binary = BinaryUtil.appendZero(integer.substring(0, integer.length() - (i - 1) * 4), 4, true);
             }
-            integerSum.append(BinaryUtil.toHex(String.valueOf(BinaryUtil
-                    .binaryIntToDecimalism(binary))));
+            integerSum.append(BinaryUtil.toHex(String.valueOf(BinaryUtil.binaryIntToDecimalism(binary))));
         }
         return integerSum.reverse().toString();
     }
-
+    
     /**
      * 将二进制小数部分转换成十六进制
      *
@@ -230,15 +220,13 @@ public class BinaryUtil {
             if (i != loop) {
                 binary = decimals.substring(4 * (i - 1), 4 * (i - 1) + 4);
             } else {
-                binary = BinaryUtil.appendZero(decimals.substring(4 * (i - 1)),
-                        4, false);
+                binary = BinaryUtil.appendZero(decimals.substring(4 * (i - 1)), 4, false);
             }
-            decimalsSum.append(BinaryUtil.toHex(String.valueOf(BinaryUtil
-                    .binaryIntToDecimalism(binary))));
+            decimalsSum.append(BinaryUtil.toHex(String.valueOf(BinaryUtil.binaryIntToDecimalism(binary))));
         }
         return decimalsSum.toString();
     }
-
+    
     /**
      * 将二进制转换成十六进制
      *
@@ -255,8 +243,7 @@ public class BinaryUtil {
             if (BinaryUtil.isContainsPoint(binary)) {
                 integer = binary.substring(0, binary.indexOf("."));
                 point = ".";
-                decimals = binary.substring(binary.indexOf(".") + 1,
-                        binary.length());
+                decimals = binary.substring(binary.indexOf(".") + 1, binary.length());
                 integerSum = BinaryUtil.binaryIntToHexadecimal(integer);
                 decimalsSum = BinaryUtil.binaryDecToHexadecimal(decimals);
             } else {
@@ -269,7 +256,7 @@ public class BinaryUtil {
         sum = sum.append(integerSum).append(point).append(decimalsSum);
         return sum.toString();
     }
-
+    
     /**
      * 将十进制整数部分转换成二进制
      *
@@ -279,7 +266,7 @@ public class BinaryUtil {
     public static String decimalismIntToBinary(String integer) {
         return Integer.toBinaryString(Integer.parseInt(integer)).toString();
     }
-
+    
     /**
      * 将十进制小数部分转换成二进制
      *
@@ -293,15 +280,12 @@ public class BinaryUtil {
         double dou = Double.parseDouble(all);
         while (!String.valueOf(dou).equals("0.0")) {
             dou = dou * 2;
-            sum += String.valueOf(dou).substring(0,
-                    String.valueOf(dou).indexOf("."));
-            dou = Double.parseDouble("0."
-                    + String.valueOf(dou).substring(
-                    String.valueOf(dou).indexOf(".") + 1));
+            sum += String.valueOf(dou).substring(0, String.valueOf(dou).indexOf("."));
+            dou = Double.parseDouble("0." + String.valueOf(dou).substring(String.valueOf(dou).indexOf(".") + 1));
         }
         return sum;
     }
-
+    
     /**
      * 将十进制转换成二进制
      *
@@ -329,7 +313,7 @@ public class BinaryUtil {
         binary = integer + point + decimals;
         return binary;
     }
-
+    
     /**
      * 将10~15转换成A~F
      *
@@ -362,7 +346,7 @@ public class BinaryUtil {
         }
         return str;
     }
-
+    
     /**
      * 根据补位标志将源字符串补位到指定长度
      *
@@ -388,7 +372,7 @@ public class BinaryUtil {
         }
         return str;
     }
-
+    
     /**
      * 是否合法二进制字符串
      *
@@ -427,7 +411,7 @@ public class BinaryUtil {
         }
         return flag;
     }
-
+    
     /**
      * 是否包含小数点
      *
@@ -437,7 +421,7 @@ public class BinaryUtil {
     public static boolean isContainsPoint(String number) {
         return number.contains(".") ? true : false;
     }
-
+    
     /**
      * 判断是否数字
      *
@@ -449,7 +433,7 @@ public class BinaryUtil {
         Matcher m = p.matcher(number);
         return m.matches();
     }
-
+    
     /**
      * 判断是否是一个合法的数字
      *
@@ -488,22 +472,22 @@ public class BinaryUtil {
         }
         return flag;
     }
-
-
+    
+    
     public static void main(String[] args) throws Exception {
         String binary = "1100111010101001000110001000110001001001010000100000100010001000010101000100001000001000110000010000010000010000000100000100000010000001000";
-//        System.out.println(BinaryUtil.binaryToDecimalism(binary));
-//        System.out.println(BinaryUtil.binaryToOctal(binary));
+        //        System.out.println(BinaryUtil.binaryToDecimalism(binary));
+        //        System.out.println(BinaryUtil.binaryToOctal(binary));
         System.out.println(BinaryUtil.binaryToHexadecimal(binary));
-//        String integer = "51";
-//        System.out.println(BinaryUtil.decimalismToBinary(integer));
-//
-//        String bin = "101011.101";
-//        System.out.println(BinaryUtil.binaryToDecimalism(bin));
-//        System.out.println(BinaryUtil.binaryToOctal(bin));
-//        System.out.println(BinaryUtil.binaryToHexadecimal(bin));
-//        String inte = "43.625";
-//        System.out.println(BinaryUtil.decimalismToBinary(inte));
+        //        String integer = "51";
+        //        System.out.println(BinaryUtil.decimalismToBinary(integer));
+        //
+        //        String bin = "101011.101";
+        //        System.out.println(BinaryUtil.binaryToDecimalism(bin));
+        //        System.out.println(BinaryUtil.binaryToOctal(bin));
+        //        System.out.println(BinaryUtil.binaryToHexadecimal(bin));
+        //        String inte = "43.625";
+        //        System.out.println(BinaryUtil.decimalismToBinary(inte));
     }
-
+    
 }

@@ -9,7 +9,7 @@ import com.devil.basic.design.factory.simple.Animal;
  * @date Created in 2021/7/22 14:17
  */
 public interface IAnimalFactory {
-
+    
     Animal create();
-
+    
 }

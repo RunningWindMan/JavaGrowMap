@@ -14,13 +14,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest(classes = {DevilSpringApplication.class})
 public class SpringTest {
-
+    
     @Autowired
     private BeanListInject beanListInject;
-
+    
     @Test
     public void test1() {
         beanListInject.work();
     }
-
+    
 }

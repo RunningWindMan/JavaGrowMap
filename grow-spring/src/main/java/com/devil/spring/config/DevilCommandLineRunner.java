@@ -12,12 +12,13 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class DevilCommandLineRunner implements CommandLineRunner {
+    
     @Override
     public void run(String... args) throws Exception {
-//        while (true) {
-//            DevilBean bean = new DevilBean();
-//            bean.getCount();
-//            TimeUnit.MILLISECONDS.sleep(500);
-//        }
+        //        while (true) {
+        //            DevilBean bean = new DevilBean();
+        //            bean.getCount();
+        //            TimeUnit.MILLISECONDS.sleep(500);
+        //        }
     }
 }

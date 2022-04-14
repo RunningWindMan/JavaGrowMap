@@ -7,11 +7,11 @@ package com.devil.basic.search;
  * @date Created in 2021/7/12 16:47
  */
 public class BinarySearchTest {
-
+    
     public int binarySearch(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-
+        
         while (left <= right) {
             // left,right都很大时有可能越界，所以采用这种方式 不用 (right + left)/2
             int mid = left + (right - left) / 2;
@@ -26,5 +26,5 @@ public class BinarySearchTest {
         // 没找到
         return -1;
     }
-
+    
 }

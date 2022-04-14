@@ -12,10 +12,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
  */
 @SpringBootApplication
 public class DevilNacosConfigApplication {
-
+    
     public static void main(String[] args) {
-        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilNacosConfigApplication.class);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(
+                DevilNacosConfigApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

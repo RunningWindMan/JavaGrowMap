@@ -12,14 +12,14 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
  * @date Created in 2021/7/14 22:43
  */
 public class DevilBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilBeanDefinitionRegistryPostProcessor.class);
-
+    
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         log.info("postProcessBeanDefinitionRegistry++++++++++");
     }
-
+    
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         log.info("postProcessBeanFactory++++++++++");

@@ -7,7 +7,7 @@ package com.devil.basic.structure.list;
  * @date Created in 2021/7/6 14:07
  */
 public class RemoveListIndexNodeTest {
-
+    
     public static void main(String[] args) {
         Node node6 = new Node(6, null);
         Node node5 = new Node(5, node6);
@@ -15,23 +15,23 @@ public class RemoveListIndexNodeTest {
         Node node3 = new Node(3, node4);
         Node node2 = new Node(2, node3);
         Node node1 = new Node(1, node2);
-
-//        Node node = removeIndexOne(node1, 2);
-//        node.printNode(node);
-
+        
+        //        Node node = removeIndexOne(node1, 2);
+        //        node.printNode(node);
+        
         Node anotherNode = removeIndexTwo(node1, 2);
         anotherNode.printNode(anotherNode);
-
+        
     }
-
+    
     public static Node removeIndexOne(Node node, int index) {
         if (index == 0 || node.next == null) {
             return node;
         }
-
+        
         // 反转链表
         Node reverse = ReverseListTest.reverse(node);
-
+        
         int count = 1;
         Node pre = null;
         Node cur = reverse;
@@ -42,26 +42,26 @@ public class RemoveListIndexNodeTest {
             next = cur.next;
             count++;
         }
-
+        
         if (count != index) {
             return node;
         } else {
             pre.next = next;
             return ReverseListTest.reverse(reverse);
         }
-
+        
     }
-
+    
     public static Node removeIndexTwo(Node node, int index) {
         if (index == 0 || node.next == null) {
             return node;
         }
-
+        
         Node first = node;
         Node second = node;
-
+        
         // 为什么从0开始？默认null也算一个节点，其实是倒数index+1个节点，所以也可以这样写
-//        for (int i = 1; i <= index + 1; i++) {
+        //        for (int i = 1; i <= index + 1; i++) {
         for (int i = 0; i <= index; i++) {
             if (first != null) {
                 first = first.next;
@@ -69,14 +69,14 @@ public class RemoveListIndexNodeTest {
                 return node;
             }
         }
-
+        
         while (first != null) {
             first = first.next;
             second = second.next;
         }
-
+        
         second.next = second.next.next;
         return node;
     }
-
+    
 }

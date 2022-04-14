@@ -7,7 +7,7 @@ package com.devil.idgen;
  * @date Created in 2022/3/10 16:06
  */
 public class SegmentIdGenerator {
-
+    
     /**
      * 64位的id  正好符合一个Long类型长度
      * 1位标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0<br>
@@ -18,5 +18,5 @@ public class SegmentIdGenerator {
      * 10位序列，毫秒内的计数，12位的计数顺序号支持每个节点每毫秒(同一机器，同一时间截)产生4096个ID序号<br>
      * 7位的号段，可以号段内产生1024个序号<br>
      */
-
+    
 }

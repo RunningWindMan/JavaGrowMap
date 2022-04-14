@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
  */
 //@Configuration
 public class DevilRabbitMQConfiguration {
-
+    
     @Bean
     public MessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }
-
+    
 }

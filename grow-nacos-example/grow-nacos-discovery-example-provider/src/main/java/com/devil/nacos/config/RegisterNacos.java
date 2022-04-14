@@ -16,16 +16,16 @@ import javax.annotation.PostConstruct;
  */
 @Component
 public class RegisterNacos {
-
+    
     @NacosInjected
     private NamingService namingService;
-
+    
     @Value("${server.port}")
     private int serverPort;
-
+    
     @Value("${spring.application.name}")
     private String applicationName;
-
+    
     /**
      * 注册服务
      *
@@ -35,5 +35,5 @@ public class RegisterNacos {
     public void registerInstance() throws NacosException {
         namingService.registerInstance(applicationName, "127.0.0.1", serverPort);
     }
-
+    
 }

@@ -11,10 +11,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class GrowCloudNacosDiscoveryApplication {
-
+    
     public static void main(String[] args) {
-        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(GrowCloudNacosDiscoveryApplication.class);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(
+                GrowCloudNacosDiscoveryApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

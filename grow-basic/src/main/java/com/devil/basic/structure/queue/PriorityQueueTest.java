@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @date Created in 2021/7/12 15:59
  */
 public class PriorityQueueTest {
-
+    
     public static void topK(int[] a, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(k);
         for (int i = 0; i < a.length; i++) {
@@ -26,10 +26,10 @@ public class PriorityQueueTest {
             System.out.println(priorityQueue.poll() + " ");
         }
     }
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{3, 4, 6, 2, 1, 6, 7, 8, 9};
+        int[] a = new int[] {3, 4, 6, 2, 1, 6, 7, 8, 9};
         topK(a, 4);
     }
-
+    
 }

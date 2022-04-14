@@ -5,7 +5,7 @@ package com.devil.basic.design.state;
  * @date Created in 2021/7/27 22:12
  */
 public class StateTest {
-
+    
     public static void main(String[] args) {
         Lift lift = new Lift();
         lift.setState(new OpenState(lift));
@@ -14,5 +14,5 @@ public class StateTest {
         lift.run();
         lift.stop();
     }
-
+    
 }

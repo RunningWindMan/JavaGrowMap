@@ -6,7 +6,7 @@ package com.devil.basic.design.strategy;
  */
 @FunctionalInterface
 public interface ConfigFactory {
-
+    
     ConfigFactory DEFAULT = (configType) -> {
         switch (configType) {
             case ALPHA:
@@ -17,7 +17,7 @@ public interface ConfigFactory {
                 return new DefaultConfig();
         }
     };
-
+    
     Config create(ConfigType configType);
-
+    
 }

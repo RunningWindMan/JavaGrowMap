@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 @EnableAsync
 public class ThreadPoolConfig {
-
+    
     @Bean(value = "devilThreadPoolTaskExecutor", destroyMethod = "destroy")
     public ThreadPoolTaskExecutor getAsyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
@@ -35,5 +35,5 @@ public class ThreadPoolConfig {
         executor.initialize();
         return executor;
     }
-
+    
 }

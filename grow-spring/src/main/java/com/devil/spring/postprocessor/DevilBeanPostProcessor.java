@@ -14,11 +14,11 @@ import org.springframework.core.Ordered;
  * @date Created in 2021/7/14 21:16
  */
 public class DevilBeanPostProcessor implements BeanPostProcessor, Ordered, BeanFactoryAware {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilBeanPostProcessor.class);
-
+    
     private BeanFactory beanFactory;
-
+    
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof DevilBean) {
@@ -26,7 +26,7 @@ public class DevilBeanPostProcessor implements BeanPostProcessor, Ordered, BeanF
         }
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
-
+    
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof DevilBean) {
@@ -34,12 +34,12 @@ public class DevilBeanPostProcessor implements BeanPostProcessor, Ordered, BeanF
         }
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
-
+    
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
     }
-
+    
     @Override
     public int getOrder() {
         return Ordered.HIGHEST_PRECEDENCE + 1;

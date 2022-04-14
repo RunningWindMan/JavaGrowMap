@@ -5,7 +5,7 @@ package com.devil.basic.design.factory.simple;
  * @date Created in 2021/7/22 14:06
  */
 public class Cat implements Animal {
-
+    
     @Override
     public String call() {
         return "miao miao";

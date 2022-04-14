@@ -11,13 +11,15 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date Created in 2021/8/2 16:15
  */
 public class ConditionTest {
-
+    
     private final Lock lock = new ReentrantLock();
+    
     // 消费信号
     private final Condition conCondition = lock.newCondition();
+    
     // 生产信号
     private final Condition proCondition = lock.newCondition();
-
+    
     public static void main(String[] args) {
         ConditionTest test = new ConditionTest();
         Producer producer = test.new Producer();
@@ -25,8 +27,9 @@ public class ConditionTest {
         new Thread(consumer).start();
         new Thread(producer).start();
     }
-
+    
     class Consumer implements Runnable {
+        
         @Override
         public void run() {
             while (true) {
@@ -45,8 +48,9 @@ public class ConditionTest {
             }
         }
     }
-
+    
     class Producer implements Runnable {
+        
         @Override
         public void run() {
             while (true) {
@@ -66,6 +70,6 @@ public class ConditionTest {
             }
         }
     }
-
-
+    
+    
 }

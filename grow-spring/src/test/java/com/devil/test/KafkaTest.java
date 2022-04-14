@@ -16,16 +16,16 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest(classes = {DevilSpringApplication.class})
 public class KafkaTest {
-
+    
     private static final Logger log = LoggerFactory.getLogger(KafkaTest.class);
-
+    
     @Autowired
     private KafkaUtil kafkaUtil;
-
+    
     @Test
     public void test1() {
         kafkaUtil.send("test", "4444444444");
     }
-
+    
 }
  

@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 
 @Service
 public class StockService {
-
+    
     @Resource
     private StockDAO stockDAO;
-
+    
     /**
      * 减库存
      *
@@ -25,7 +25,7 @@ public class StockService {
         if (commodityCode.equals("product-2")) {
             throw new RuntimeException("异常:模拟业务异常:stock branch exception");
         }
-
+        
         QueryWrapper<Stock> wrapper = new QueryWrapper<>();
         wrapper.setEntity(new Stock().setCommodityCode(commodityCode));
         Stock stock = stockDAO.selectOne(wrapper);

@@ -10,7 +10,7 @@ import java.util.List;
  * @date Created in 2021/7/27 17:14
  */
 public class ReduceTest {
-
+    
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -30,5 +30,5 @@ public class ReduceTest {
         }).orElseGet(() -> 0);
         System.out.println(result);
     }
-
+    
 }

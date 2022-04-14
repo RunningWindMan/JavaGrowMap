@@ -7,11 +7,11 @@ package com.devil.basic.special.loopdependency;
  * @date Created in 2021/7/18 15:59
  */
 public class DependencyTest {
-
+    
     public static void main(String[] args) {
         DependenceA a = new DependenceA();
         DependenceB b = new DependenceB(a);
         b.work();
     }
-
+    
 }

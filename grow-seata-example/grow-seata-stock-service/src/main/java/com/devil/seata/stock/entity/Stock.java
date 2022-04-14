@@ -8,9 +8,11 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("stock_tbl")
 public class Stock {
-
+    
     private Long id;
+    
     private String commodityCode;
+    
     private Long count;
-
+    
 }

@@ -14,10 +14,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class DevilAlibabaNacosDiscoveryProviderApplication {
-
+    
     public static void main(String[] args) {
-        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilAlibabaNacosDiscoveryProviderApplication.class);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(
+                DevilAlibabaNacosDiscoveryProviderApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

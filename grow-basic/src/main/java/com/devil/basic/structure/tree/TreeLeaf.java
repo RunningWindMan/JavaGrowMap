@@ -9,7 +9,7 @@ import java.util.Stack;
  * @date Created in 2022/3/1 17:08
  */
 public class TreeLeaf {
-
+    
     public static int leaf(TreeNode root) {
         if (root == null) {
             return 0;
@@ -21,7 +21,7 @@ public class TreeLeaf {
         int rightLeaf = leaf(root.right);
         return leftLeaf + rightLeaf;
     }
-
+    
     public static int leaf2(TreeNode root) {
         if (root == null) {
             return 0;
@@ -46,7 +46,7 @@ public class TreeLeaf {
         }
         return leafSize;
     }
-
+    
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -59,5 +59,5 @@ public class TreeLeaf {
         System.out.println(leaf(root));
         System.out.println(leaf2(root));
     }
-
+    
 }

@@ -16,25 +16,23 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @date Created in 2021/7/26 16:36
  */
 public class NettyServer {
-
+    
     private int port;
-
+    
     public NettyServer(int port) {
         this.port = port;
     }
-
+    
     public void run() throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)
+            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline()
-                                    .addLast(new RpcDecoder(RpcRequest.class)) //解码request
+                            ch.pipeline().addLast(new RpcDecoder(RpcRequest.class)) //解码request
                                     .addLast(new RpcEncoder(RpcResponse.class)) //编码response
                                     .addLast(new RpcServerHandler());
                         }
@@ -43,10 +41,10 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     // 保持长链接
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
-
+            
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync();
-
+            
             if (f.isSuccess()) {
                 System.out.println("服务端启动成功");
             } else {
@@ -55,7 +53,7 @@ public class NettyServer {
                 bossGroup.shutdownGracefully(); //关闭线程组
                 workerGroup.shutdownGracefully();
             }
-
+            
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully
             // shut down your server.
@@ -65,5 +63,5 @@ public class NettyServer {
             bossGroup.shutdownGracefully();
         }
     }
-
+    
 }

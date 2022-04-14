@@ -9,10 +9,11 @@ import java.util.Stack;
  * @date Created in 2021/7/8 18:55
  */
 public class StackTest {
-
+    
     Stack<Integer> stack1 = new Stack<Integer>();
+    
     Stack<Integer> stack2 = new Stack<Integer>();
-
+    
     public static void main(String[] args) {
         StackTest solution = new StackTest();
         solution.push(1);
@@ -20,7 +21,7 @@ public class StackTest {
         System.out.println(solution.pop());
         System.out.println(solution.pop());
     }
-
+    
     public void push(int node) {
         while (!stack2.empty()) {
             Integer popNode = stack2.pop();
@@ -28,7 +29,7 @@ public class StackTest {
         }
         stack1.push(node);
     }
-
+    
     public int pop() {
         while (!stack1.empty()) {
             Integer popNode = stack1.pop();
@@ -39,5 +40,5 @@ public class StackTest {
         }
         return 0;
     }
-
+    
 }

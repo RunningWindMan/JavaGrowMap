@@ -11,7 +11,7 @@ import java.util.Stack;
  * @date Created in 2021/7/23 15:43
  */
 public class BinaryTreeMirror {
-
+    
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -24,17 +24,17 @@ public class BinaryTreeMirror {
         node2.left = node4;
         node2.right = node5;
         node3.left = node6;
-
-//        TreeNode recursionSolution = recursionSolution(node1);
-//        BinaryTreeLoop.preLoop(recursionSolution);
-
-//        TreeNode noRecursionSolution = noRecursionSolution(node1);
-//        BinaryTreeLoop.preLoop(noRecursionSolution);
-
+        
+        //        TreeNode recursionSolution = recursionSolution(node1);
+        //        BinaryTreeLoop.preLoop(recursionSolution);
+        
+        //        TreeNode noRecursionSolution = noRecursionSolution(node1);
+        //        BinaryTreeLoop.preLoop(noRecursionSolution);
+        
         TreeNode noRecursionSolution2 = noRecursionSolution2(node1);
         BinaryTreeLoop.preLoop(noRecursionSolution2);
     }
-
+    
     /**
      * 递归解法
      */
@@ -49,7 +49,7 @@ public class BinaryTreeMirror {
         recursionSolution(node.right);
         return node;
     }
-
+    
     /**
      * 非递归解法  队列
      */
@@ -61,18 +61,18 @@ public class BinaryTreeMirror {
             TreeNode left = head.left;
             head.left = head.right;
             head.right = left;
-
+            
             if (head.left != null) {
                 queue.offer(head.left);
             }
-
+            
             if (head.right != null) {
                 queue.offer(head.right);
             }
         }
         return node;
     }
-
+    
     /**
      * 非递归解法  栈
      */
@@ -96,5 +96,5 @@ public class BinaryTreeMirror {
         }
         return node;
     }
-
+    
 }

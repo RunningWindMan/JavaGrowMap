@@ -12,9 +12,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.devil.seata.order.repository")
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class OrderServiceApplication {
-
+    
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
     }
-
+    
 }

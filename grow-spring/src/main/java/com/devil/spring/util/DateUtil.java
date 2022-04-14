@@ -21,38 +21,41 @@ import java.util.TimeZone;
  * @date Created in 2021/12/9 13:54
  */
 public class DateUtil {
-
+    
     /**
      * 时间格式(yyyy-MM-dd)
      */
     public final static String DATE_PATTERN = "yyyy-MM-dd";
-
+    
     /**
      * 时间格式(MM.dd) statistical
      */
     public final static String DATE_PATTERN_STATISTICAL = "MM.dd";
-
+    
     /**
      * 时间格式(yyyy-MM-dd HH:mm:ss)
      */
     public final static String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    
     /**
      * UTC时间格式(yyyy-MM-dd'T'HH:mm:ss.SSS)
      */
     public final static String UTC_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
-
+    
     public final static String DATE_TIME_PATTERN_NON_SPLIT = "yyyyMMddHHmmss";
-
+    
     /**
      * 时间格式(yyyy-MM-dd HH:mm:ss)
      */
-    public static final FastDateFormat FAST_DATE_TIME_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT+8"));
-
+    public static final FastDateFormat FAST_DATE_TIME_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss",
+            TimeZone.getTimeZone("GMT+8"));
+    
     /**
      * 时间格式(yyyy-MM-dd)
      */
-    public static final FastDateFormat FAST_DATE_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT+8"));
-
+    public static final FastDateFormat FAST_DATE_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd",
+            TimeZone.getTimeZone("GMT+8"));
+    
     /**
      * 格式化日期yyyy-MM-dd HH:mm:ss
      *
@@ -64,7 +67,7 @@ public class DateUtil {
         }
         return FAST_DATE_TIME_FORMAT.format(date);
     }
-
+    
     /**
      * 格式化日期yyyy-MM-dd
      *
@@ -76,7 +79,7 @@ public class DateUtil {
         }
         return FAST_DATE_FORMAT.format(date);
     }
-
+    
     /**
      * 日期格式化 日期格式为：yyyy-MM-dd
      *
@@ -86,7 +89,7 @@ public class DateUtil {
     public static String format(Date date) {
         return format(date, DATE_PATTERN);
     }
-
+    
     /**
      * 日期格式化 日期格式为：yyyy-MM-dd
      *
@@ -101,7 +104,7 @@ public class DateUtil {
         }
         return null;
     }
-
+    
     /**
      * 字符串转换成日期
      *
@@ -112,11 +115,11 @@ public class DateUtil {
         if (StringUtils.isBlank(strDate)) {
             return null;
         }
-
+        
         DateTimeFormatter fmt = DateTimeFormat.forPattern(pattern);
         return fmt.parseLocalDateTime(strDate).toDate();
     }
-
+    
     /**
      * 根据周数，获取开始日期、结束日期
      *
@@ -126,13 +129,13 @@ public class DateUtil {
     public static Date[] getWeekStartAndEnd(int week) {
         DateTime dateTime = new DateTime();
         LocalDate date = new LocalDate(dateTime.plusWeeks(week));
-
+        
         date = date.dayOfWeek().withMinimumValue();
         Date beginDate = date.toDate();
         Date endDate = date.plusDays(6).toDate();
-        return new Date[]{beginDate, endDate};
+        return new Date[] {beginDate, endDate};
     }
-
+    
     /**
      * 对日期的【秒】进行加/减
      *
@@ -144,7 +147,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusSeconds(seconds).toDate();
     }
-
+    
     /**
      * 对日期的【分钟】进行加/减
      *
@@ -156,7 +159,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusMinutes(minutes).toDate();
     }
-
+    
     /**
      * 对日期的【小时】进行加/减
      *
@@ -168,7 +171,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusHours(hours).toDate();
     }
-
+    
     /**
      * 对日期的【天】进行加/减
      *
@@ -180,7 +183,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusDays(days).toDate();
     }
-
+    
     /**
      * 对日期的【周】进行加/减
      *
@@ -192,7 +195,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusWeeks(weeks).toDate();
     }
-
+    
     /**
      * 对日期的【月】进行加/减
      *
@@ -204,7 +207,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusMonths(months).toDate();
     }
-
+    
     /**
      * 对日期的【年】进行加/减
      *
@@ -216,7 +219,7 @@ public class DateUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.plusYears(years).toDate();
     }
-
+    
     /**
      * 计算日期差
      *
@@ -229,27 +232,27 @@ public class DateUtil {
         Instant instantNow = after.toInstant();
         return Duration.between(instantBefore, instantNow);
     }
-
+    
     /**
      * 获取今日23：59：59时间
      */
     public static Date getTodayLastSecondDate() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 23, 59, 59);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 23,
+                59, 59);
         return calendar.getTime();
     }
-
+    
     public static String LongToDate(Long ml) {
-
+        
         Date date = new Date(ml);
-
+        
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-
+        
         return sd.format(date);
-
+        
     }
-
+    
     /**
      * 获取 N天前后的   00：00：00
      *
@@ -257,10 +260,10 @@ public class DateUtil {
      * @param isLastSecond true 23:59:59
      */
     public static Date getLastNDayDate(int beforeDays, boolean isLastSecond) {
-
+        
         return getLastNDayDate(new Date(), beforeDays, isLastSecond);
     }
-
+    
     /**
      * 获取 date天前后的   00：00：00
      *
@@ -282,21 +285,21 @@ public class DateUtil {
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
     }
-
+    
     /**
      * 获取当天00:00
      */
     public static Date getCurrentDay() {
         return getLastNDayDate(0, false);
     }
-
+    
     /**
      * 获取时间戳
      */
     public static long getMillis() {
         return System.nanoTime();
     }
-
+    
     /**
      * 判断该日期是否是该月的第一天
      *
@@ -307,8 +310,8 @@ public class DateUtil {
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_MONTH) == 1;
     }
-
-
+    
+    
     public static String getMonthOfFirstDay() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
@@ -316,15 +319,15 @@ public class DateUtil {
         c.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
         return format.format(c.getTime());
     }
-
+    
     public static String getMonthOfLastDay() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar ca = Calendar.getInstance();
         ca.set(Calendar.DAY_OF_MONTH, ca.getActualMaximum(Calendar.DAY_OF_MONTH));
         return format.format(ca.getTime());
     }
-
-
+    
+    
     public static String getLastMonthOfFirstDay() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
@@ -332,7 +335,7 @@ public class DateUtil {
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         return format.format(calendar.getTime());
     }
-
+    
     public static String getLastMonthOfLastDay() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
@@ -341,7 +344,7 @@ public class DateUtil {
         calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
         return format.format(calendar.getTime());
     }
-
+    
     public static String getLastDayOfMonthByYearAndMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         //设置年份
@@ -356,6 +359,6 @@ public class DateUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(cal.getTime());
     }
-
-
+    
+    
 }

@@ -10,13 +10,13 @@ import org.springframework.core.type.AnnotationMetadata;
  * @date Created in 2021/7/29 10:43
  */
 public class DevilImport implements ImportSelector {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilImport.class);
-
+    
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
         log.info("导入import 或者 configuration");
         return new String[0];
     }
-
+    
 }

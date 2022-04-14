@@ -24,30 +24,33 @@ import java.util.Random;
  */
 @SpringBootTest(classes = {DevilSpringApplication.class})
 public class RabbitMqTest {
-
+    
     @Autowired
     private RabbitAdmin rabbitAdmin;
+    
     @Autowired
     private RabbitTemplate rabbitTemplate;
-
+    
     @Test
     public void testCreateQueue() {
         // common direct queue
-//        rabbitAdmin.declareQueue(new Queue("devil-test"));
-//        rabbitAdmin.declareBinding(new Binding("devil-test", Binding.DestinationType.QUEUE, "amq.direct", "test", new HashMap()));
-
+        //        rabbitAdmin.declareQueue(new Queue("devil-test"));
+        //        rabbitAdmin.declareBinding(new Binding("devil-test", Binding.DestinationType.QUEUE, "amq.direct", "test", new HashMap()));
+        
         // common topic queue
         rabbitAdmin.declareQueue(new Queue("devil-topic-test-all"));
-        rabbitAdmin.declareBinding(new Binding("devil-topic-test-all", Binding.DestinationType.QUEUE, "amq.topic", "test.topic.#", new HashMap()));
-
+        rabbitAdmin.declareBinding(
+                new Binding("devil-topic-test-all", Binding.DestinationType.QUEUE, "amq.topic", "test.topic.#",
+                        new HashMap()));
+        
         // delayed direct queue
-//        Map<String, Object> args = new HashMap<>();
-//        args.put("x-delayed-type", "direct");
-//        rabbitAdmin.declareExchange(new CustomExchange("devil.exchange.delayed", "x-delayed-message", true, false, args));
-//        rabbitAdmin.declareQueue(new Queue("devil-test-delayed"));
-//        rabbitAdmin.declareBinding(new Binding("devil-test-delayed", Binding.DestinationType.QUEUE, "devil.exchange.delayed", "test-delayed", new HashMap()));
+        //        Map<String, Object> args = new HashMap<>();
+        //        args.put("x-delayed-type", "direct");
+        //        rabbitAdmin.declareExchange(new CustomExchange("devil.exchange.delayed", "x-delayed-message", true, false, args));
+        //        rabbitAdmin.declareQueue(new Queue("devil-test-delayed"));
+        //        rabbitAdmin.declareBinding(new Binding("devil-test-delayed", Binding.DestinationType.QUEUE, "devil.exchange.delayed", "test-delayed", new HashMap()));
     }
-
+    
     @Test
     public void testDirectMessage() {
         Random random = new Random();
@@ -60,7 +63,7 @@ public class RabbitMqTest {
             rabbitTemplate.convertAndSend("amq.direct", "test", map);
         }
     }
-
+    
     @Test
     public void testTopicMessage() {
         Map<String, Object> map = new HashMap<>();
@@ -71,7 +74,7 @@ public class RabbitMqTest {
         map.put("name", "devil" + i);
         rabbitTemplate.convertAndSend("amq.topic", "test.topic.b", map);
     }
-
+    
     @Test
     public void testDirectDelayedMessage() {
         Map<String, Object> map = new HashMap<>();
@@ -86,5 +89,5 @@ public class RabbitMqTest {
             return message;
         });
     }
-
+    
 }

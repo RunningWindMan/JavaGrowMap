@@ -7,14 +7,14 @@ package com.devil.basic.sort;
  * @date Created in 2021/7/16 21:06
  */
 public class MergeSort implements Sort {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {1, 6, 2, 4, 5, 8};
         MergeSort mergeSort = new MergeSort();
         mergeSort.sort(a, a.length);
         mergeSort.print(a);
     }
-
+    
     @Override
     public void sort(int[] a, int n) {
         if (a == null || n == 0) {
@@ -23,7 +23,7 @@ public class MergeSort implements Sort {
         int[] temp = new int[n];
         mergeSort(a, 0, n - 1, temp);
     }
-
+    
     private void mergeSort(int[] a, int low, int high, int[] temp) {
         if (low >= high) {
             return;
@@ -33,7 +33,7 @@ public class MergeSort implements Sort {
         mergeSort(a, mid + 1, high, temp);
         merge(a, low, mid, high, temp);
     }
-
+    
     private void merge(int[] a, int low, int mid, int high, int[] temp) {
         int k = 0;
         int i = low, j = mid + 1;
@@ -44,19 +44,19 @@ public class MergeSort implements Sort {
                 temp[k++] = a[j++];
             }
         }
-
+        
         while (i <= mid) {
             temp[k++] = a[i++];
         }
-
+        
         while (j <= high) {
             temp[k++] = a[j++];
         }
-
+        
         k = 0;
         while (low <= high) {
             a[low++] = temp[k++];
         }
     }
-
+    
 }

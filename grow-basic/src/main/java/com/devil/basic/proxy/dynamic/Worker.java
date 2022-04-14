@@ -5,7 +5,7 @@ package com.devil.basic.proxy.dynamic;
  * @date Created in 2021/7/15 13:37
  */
 public interface Worker {
-
+    
     String work();
-
+    
 }

@@ -14,10 +14,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 @EnableNacosDiscovery
 public class DevilNacosDiscoveryConsumerApplication {
-
+    
     public static void main(String[] args) {
-        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilNacosDiscoveryConsumerApplication.class);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(
+                DevilNacosDiscoveryConsumerApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

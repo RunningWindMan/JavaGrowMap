@@ -10,7 +10,7 @@ import java.util.Map;
  * @date Created in 2021/6/28 19:25
  */
 public class LengthOfLongestSubstringSolution {
-
+    
     public static int solutionOne(String s) {
         int n = s.length(), result = 0;
         Map<Character, Integer> subStringMap = new HashMap<>();
@@ -25,9 +25,9 @@ public class LengthOfLongestSubstringSolution {
         }
         return result;
     }
-
+    
     public static void main(String[] args) {
         System.out.println(solutionOne("abcabcbb"));
     }
-
+    
 }

@@ -7,20 +7,20 @@ package com.devil.basic.sort;
  * @date Created in 2021/7/7 10:16
  */
 public class BubbleSort implements Sort {
-
+    
     public static void main(String[] args) {
         Sort sort = new BubbleSort();
-        int[] a = new int[]{1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {1, 6, 2, 4, 5, 8};
         sort.sort(a, a.length);
         sort.print(a);
     }
-
+    
     @Override
     public void sort(int[] a, int n) {
         if (n <= 1) {
             return;
         }
-
+        
         for (int i = 0; i < n; ++i) {
             // 提前退出冒泡循环的标志位
             boolean flag = false;
@@ -40,5 +40,5 @@ public class BubbleSort implements Sort {
             }
         }
     }
-
+    
 }

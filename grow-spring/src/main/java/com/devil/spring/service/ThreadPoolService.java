@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ThreadPoolService {
-
+    
     private static final Logger log = LoggerFactory.getLogger(ThreadPoolService.class);
-
+    
     @Async(value = "devilThreadPoolTaskExecutor")
     public void asyncTest() {
         log.info("devil =====================================");
     }
-
+    
 }

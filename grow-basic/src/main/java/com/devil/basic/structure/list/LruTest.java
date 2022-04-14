@@ -11,22 +11,27 @@ import java.util.Map;
  * @date Created in 2021/7/8 10:36
  */
 public class LruTest {
-
+    
     public static class ListNode {
+        
         ListNode prev;
+        
         ListNode next;
+        
         int key, value;
-
+        
         public ListNode(int key, int value) {
             this.key = key;
             this.value = value;
         }
     }
-
+    
     ListNode head = new ListNode(0, 0);
+    
     ListNode tail = new ListNode(0, 0);
+    
     Map<Integer, ListNode> map = new HashMap<>();
-
+    
     /**
      * lru design
      *
@@ -52,7 +57,7 @@ public class LruTest {
         }
         return list.stream().mapToInt(Integer::valueOf).toArray();
     }
-
+    
     public void put(int key, int value, int k) {
         if (map.containsKey(key)) {
             remove(key);
@@ -62,7 +67,7 @@ public class LruTest {
         }
         add(key, value);
     }
-
+    
     public int get(int key) {
         if (!map.containsKey(key)) {
             return -1;
@@ -72,7 +77,7 @@ public class LruTest {
         add(key, node.value);
         return node.value;
     }
-
+    
     public void add(int key, int value) {
         ListNode node = new ListNode(key, value);
         map.put(key, node);
@@ -81,12 +86,12 @@ public class LruTest {
         node.next = tail;
         tail.prev = node;
     }
-
+    
     public void remove(int key) {
         ListNode node = map.get(key);
         node.prev.next = node.next;
         node.next.prev = node.prev;
         map.remove(key);
     }
-
+    
 }

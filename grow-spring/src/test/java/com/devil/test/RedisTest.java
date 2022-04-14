@@ -20,37 +20,38 @@ import java.util.Set;
  */
 @SpringBootTest(classes = {DevilSpringApplication.class})
 public class RedisTest {
-
+    
     private static final Logger log = LoggerFactory.getLogger(RedisTest.class);
-
+    
     @Autowired
     private RedisUtil redisUtil;
-
+    
     @Test
     public void test1() {
         for (int i = 0; i < 100; i++) {
             redisUtil.zAdd("recommend-" + 11111, i, 10D);
         }
     }
-
+    
     @Test
     public void test2() {
-//        redisUtil.zRemove("recommend-" + 11111, "95", "94");
+        //        redisUtil.zRemove("recommend-" + 11111, "95", "94");
         for (int i = 0; i < 100; i++) {
             redisUtil.zAdd("memberList", i, i);
         }
     }
-
+    
     @Test
     public void test3() {
         Long zSize = redisUtil.zSize("memberList");
         log.info("长度: {}", zSize);
         int start = 800;
-        Set<ZSetOperations.TypedTuple<Object>> memberList = redisUtil.zReverseRangeWithScores("memberList", start, start + 2);
+        Set<ZSetOperations.TypedTuple<Object>> memberList = redisUtil.zReverseRangeWithScores("memberList", start,
+                start + 2);
         for (ZSetOperations.TypedTuple<Object> e : memberList) {
             System.out.println(e.getScore() + "-" + e.getValue());
         }
     }
-
+    
 }
  

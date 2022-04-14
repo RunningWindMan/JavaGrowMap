@@ -7,7 +7,7 @@ package com.devil.basic.leetcode;
  * @date Created in 2021/7/1 14:19
  */
 public class LongestPalindromeSolution {
-
+    
     /**
      * 中心扩散法
      */
@@ -15,7 +15,7 @@ public class LongestPalindromeSolution {
         if (s == null || s.length() < 2) {
             return "";
         }
-
+        
         int maxLen = 0;
         int maxStart = 0;
         int left;
@@ -45,7 +45,7 @@ public class LongestPalindromeSolution {
         }
         return s.substring(maxStart + 1, maxStart + 1 + maxLen);
     }
-
+    
     /**
      * 动态规划法
      */
@@ -53,7 +53,7 @@ public class LongestPalindromeSolution {
         if (s == null || s.length() < 2) {
             return "";
         }
-
+        
         int strLen = s.length();
         //最长回文串的起点
         int maxStart = 0;
@@ -61,7 +61,7 @@ public class LongestPalindromeSolution {
         int maxEnd = 0;
         //最长回文串的长度
         int maxLen = 1;
-
+        
         boolean[][] dp = new boolean[strLen][strLen];
         for (int r = 1; r < strLen; r++) {
             for (int l = 0; l < r; l++) {
@@ -77,10 +77,10 @@ public class LongestPalindromeSolution {
         }
         return s.substring(maxStart, maxEnd + 1);
     }
-
+    
     public static void main(String[] args) {
         System.out.println(solutionOne("vabba"));
         System.out.println(solutionTwo("abccba"));
     }
-
+    
 }

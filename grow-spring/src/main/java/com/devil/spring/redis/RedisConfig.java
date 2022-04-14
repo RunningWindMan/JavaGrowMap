@@ -31,28 +31,35 @@ import java.time.Duration;
  */
 @Component
 public class RedisConfig {
-
+    
     private static final Logger log = LoggerFactory.getLogger(RedisConfig.class);
-
+    
     @Value("${spring.redis.host}")
     private String host;
+    
     @Value("${spring.redis.port}")
     private int port;
+    
     @Value("${spring.redis.database}")
     private int database;
+    
     @Value("${spring.redis.timeout}")
     private long timeout;
+    
     @Value("${spring.redis.lettuce.pool.max-idle}")
     private int maxIdle;
+    
     @Value("${spring.redis.lettuce.pool.min-idle}")
     private int minIdle;
+    
     @Value("${spring.redis.lettuce.pool.max-wait}")
     private long maxWait;
+    
     @Value("${spring.redis.lettuce.pool.max-active}")
     private int maxActive;
-
+    
     private LettuceConnectionFactory lettuceConnectionFactory;
-
+    
     @PostConstruct
     private void initFactory() {
         Duration duration = Duration.ofMillis(timeout);
@@ -67,24 +74,23 @@ public class RedisConfig {
         poolConfig.setMaxWaitMillis(maxWait);
         poolConfig.setMaxTotal(maxActive);
         LettucePoolingClientConfiguration lettuceClientConfiguration = LettucePoolingClientConfiguration.builder()
-                .poolConfig(poolConfig)
-                .commandTimeout(duration)
-                .build();
-        lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration, lettuceClientConfiguration);
+                .poolConfig(poolConfig).commandTimeout(duration).build();
+        lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration,
+                lettuceClientConfiguration);
     }
-
+    
     @Bean(value = "redisConnectionFactory")
     public RedisConnectionFactory redisConnectionFactory() {
         log.info("init redis connection == host: {}, port: {}, database: {}", host, port, database);
         return this.lettuceConnectionFactory;
     }
-
+    
     @Bean(value = "reactiveRedisConnectionFactory")
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory() {
         log.info("init reactive redis connection == host: {}, port: {}, database: {}", host, port, database);
         return this.lettuceConnectionFactory;
     }
-
+    
     @Bean(value = "redisTemplate")
     @ConditionalOnBean(RedisConnectionFactory.class)
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
@@ -107,11 +113,11 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
     }
-
+    
     @Bean(value = "stringRedisTemplate")
     @ConditionalOnBean(RedisConnectionFactory.class)
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
         return new StringRedisTemplate(factory);
     }
-
+    
 }

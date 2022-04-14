@@ -16,10 +16,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"com.devil.nacos.clients"})
 public class DevilAlibabaNacosDiscoveryConsumerApplication {
-
+    
     public static void main(String[] args) {
-        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilAlibabaNacosDiscoveryConsumerApplication.class);
+        SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(
+                DevilAlibabaNacosDiscoveryConsumerApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

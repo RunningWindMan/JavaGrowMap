@@ -7,20 +7,20 @@ package com.devil.basic.sort;
  * @date Created in 2021/7/7 10:55
  */
 public class InsertionSort implements Sort {
-
+    
     public static void main(String[] args) {
         Sort sort = new InsertionSort();
-        int[] a = new int[]{1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {1, 6, 2, 4, 5, 8};
         sort.sort(a, a.length);
         sort.print(a);
     }
-
+    
     @Override
     public void sort(int[] a, int n) {
         if (n <= 1) {
             return;
         }
-
+        
         // 假设第一个元素是有序集合
         for (int i = 1; i < n; i++) {
             // 保存当前值

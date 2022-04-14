@@ -1,8 +1,7 @@
 package com.devil.basic.structure.heap;
 
 /**
- * 堆测试
- * 完全二叉树：
+ * 堆测试 完全二叉树：
  * <blockquote>
  * 7
  * <br>
@@ -25,15 +24,15 @@ package com.devil.basic.structure.heap;
  * @date Created in 2021/7/21 16:47
  */
 public class HeapTest {
-
+    
     public int left(int i) {
         return 2 * i + 1;
     }
-
+    
     public int right(int i) {
         return 2 * i + 2;
     }
-
+    
     public int parent(int i) {
         // i为根结点
         if (i == 0) {
@@ -42,7 +41,7 @@ public class HeapTest {
         // (i - 1) >>> 1
         return (i - 1) / 2;
     }
-
+    
     /**
      * 构造大顶堆（找最小）
      */
@@ -72,7 +71,7 @@ public class HeapTest {
             highestHeap(a, largest, heapLength);
         }
     }
-
+    
     /**
      * 构造小顶堆（找最大）
      */
@@ -102,7 +101,7 @@ public class HeapTest {
             lowestHeap(a, smallest, heapLength);
         }
     }
-
+    
     public void buildHighestHeap(int[] a, int heapLength) {
         // 从后往前看，（heapLength - 1 - 1）/2 处之后的所有元素都是叶子结点，所以找到最后一个元素的父节点，向前构成大顶堆
         int lengthParent = parent(heapLength - 1);
@@ -110,12 +109,12 @@ public class HeapTest {
             highestHeap(a, i, heapLength);
         }
     }
-
+    
     public void buildLowestHeap(int[] a, int heapLength) {
         int lengthParent = parent(heapLength - 1);
         for (int i = lengthParent; i >= 0; i--) {
             lowestHeap(a, i, heapLength);
         }
     }
-
+    
 }

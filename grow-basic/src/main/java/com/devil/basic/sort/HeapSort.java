@@ -7,20 +7,20 @@ import com.devil.basic.structure.heap.HeapTest;
  * @date Created in 2021/7/23 14:25
  */
 public class HeapSort implements Sort {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {1, 6, 2, 4, 5, 8};
         HeapSort heapSort = new HeapSort();
         heapSort.sort(a, a.length);
         heapSort.print(a);
     }
-
+    
     @Override
     public void sort(int[] a, int n) {
         // 构建大顶堆，之后交换堆顶和堆尾元素，断开堆尾元素
         HeapTest heap = new HeapTest();
         heap.buildHighestHeap(a, n);
-
+        
         // 调整堆结构+交换堆顶元素与末尾元素 i>0目的是断开交换前的堆尾元素
         for (int i = n - 1; i > 0; i--) {
             // 将堆顶元素与末尾元素进行交换

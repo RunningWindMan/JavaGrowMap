@@ -7,7 +7,7 @@ package com.devil.basic.sort;
  * @date Created in 2021/7/7 10:17
  */
 public interface Sort {
-
+    
     /**
      * 排序方法
      *
@@ -15,7 +15,7 @@ public interface Sort {
      * @param n 数组大小
      */
     void sort(int[] a, int n);
-
+    
     /**
      * 打印
      *
@@ -27,5 +27,5 @@ public interface Sort {
         }
         System.out.println();
     }
-
+    
 }

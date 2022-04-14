@@ -7,13 +7,13 @@ package com.devil.basic.design.state;
  * @date Created in 2021/7/27 22:09
  */
 public interface LiftState {
-
+    
     void open();
-
+    
     void close();
-
+    
     void run();
-
+    
     void stop();
-
+    
 }

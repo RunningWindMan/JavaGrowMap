@@ -20,17 +20,17 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest(classes = {DevilSpringApplication.class})
 public class RedissonTest {
-
+    
     private static final Logger log = LoggerFactory.getLogger(RedissonTest.class);
-
+    
     @Autowired
     private RedissonClient redissonClient;
-
+    
     @Test
     public void commonTest() {
         System.out.println(Integer.MAX_VALUE);
     }
-
+    
     @Test
     public void putTest() {
         RBucket<String> bucket = redissonClient.getBucket("test");
@@ -43,14 +43,14 @@ public class RedissonTest {
         boolean isSet = bucket.trySet("901");
         log.info("再再更新后： {}", bucket.get());
         long objectSize = bucket.size();
-
+        
         // set with expiration
         bucket.set("value", 10, TimeUnit.SECONDS);
         boolean isNewSet = bucket.trySet("nextValue", 10, TimeUnit.SECONDS);
-
+        
         log.info("size {}", objectSize);
     }
-
+    
     @Test
     public void putTest2() {
         RScoredSortedSet<String> memberList = redissonClient.getScoredSortedSet("memberList");
@@ -66,7 +66,7 @@ public class RedissonTest {
             count--;
         }
     }
-
+    
     @Test
     public void getTest() {
         RScoredSortedSet<String> memberList = redissonClient.getScoredSortedSet("memberList");
@@ -87,6 +87,6 @@ public class RedissonTest {
         // 平均100ms
         System.out.println("用时： " + interval + "ms");
     }
-
+    
 }
  

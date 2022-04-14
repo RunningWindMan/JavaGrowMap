@@ -10,9 +10,9 @@ import java.net.Socket;
  * @date Created in 2022/3/4 14:46
  */
 public class DevilRpcClient<T> {
-
+    
     public <T> T proxyClient(Class<T> clazz, int port) {
-        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, (proxy, method, args) -> {
+        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[] {clazz}, (proxy, method, args) -> {
             try (Socket socket = new Socket("localhost", port)) {
                 ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                 // 传方法名
@@ -28,11 +28,11 @@ public class DevilRpcClient<T> {
             }
         });
     }
-
+    
     public static void main(String[] args) {
         DevilRpcClient<IDevilRpcService> client = new DevilRpcClient<>();
         IDevilRpcService rpcService = client.proxyClient(IDevilRpcService.class, 22222);
         System.out.println(rpcService.hello());
     }
-
+    
 }

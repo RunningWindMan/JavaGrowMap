@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "prototypeTest2")
 public class PrototypeTest2Controller {
-
+    
     @GetMapping(path = "prototypeByGetBean")
     public Integer prototypeTest() {
         PrototypeBean prototypeBean = ApplicationContextUtil.getBean(PrototypeBean.class);
         return prototypeBean.getCode();
     }
-
+    
 }

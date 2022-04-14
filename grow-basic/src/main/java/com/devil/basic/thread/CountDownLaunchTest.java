@@ -3,18 +3,13 @@ package com.devil.basic.thread;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 正在等待所有玩家准备好
- * thread id: 1 已准备好
- * thread id: 0 已准备好
- * thread id: 3 已准备好
- * thread id: 2 已准备好
- * 开始游戏
+ * 正在等待所有玩家准备好 thread id: 1 已准备好 thread id: 0 已准备好 thread id: 3 已准备好 thread id: 2 已准备好 开始游戏
  *
  * @author Devil
  * @date Created in 2021/7/20 23:15
  */
 public class CountDownLaunchTest {
-
+    
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(4);
         for (int i = 0; i < latch.getCount(); i++) {
@@ -24,17 +19,18 @@ public class CountDownLaunchTest {
         latch.await();
         System.out.println("开始游戏");
     }
-
+    
     static class CountDownLaunchThread implements Runnable {
-
+        
         private int id;
+        
         private CountDownLatch latch;
-
+        
         public CountDownLaunchThread(int id, CountDownLatch latch) {
             this.id = id;
             this.latch = latch;
         }
-
+        
         @Override
         public void run() {
             try {
@@ -46,5 +42,5 @@ public class CountDownLaunchTest {
             latch.countDown();
         }
     }
-
+    
 }

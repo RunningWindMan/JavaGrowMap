@@ -3,7 +3,7 @@
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
     <property name="LOG_NAME" value="java-grow-map"/>
     <property name="LOG_PATTERN"
-              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%-21.21thread] [%-46.46logger{46}:%-4.4line] - %msg%n"/>
+        value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%-21.21thread] [%-46.46logger{46}:%-4.4line] - %msg%n"/>
     <property name="LOG_PATH" value="/usr/local/devil/logs"/>
     <contextName>${LOG_NAME}</contextName>
     <!-- 控制台输出 -->

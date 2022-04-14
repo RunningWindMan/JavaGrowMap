@@ -7,12 +7,12 @@ package com.devil.basic.design.factory.simple;
  * @date Created in 2021/7/22 14:03
  */
 public class SimpleAnimalFactory {
-
+    
     public static Animal create(String animalType) {
         if (animalType == null || "".equals(animalType)) {
             return new Dog();
         }
-
+        
         switch (animalType) {
             case "cat":
                 return new Cat();
@@ -21,7 +21,7 @@ public class SimpleAnimalFactory {
             default:
                 return new Dog();
         }
-
+        
     }
-
+    
 }

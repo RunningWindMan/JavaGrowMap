@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "threadpool")
 public class ThreadPoolTestController {
-
+    
     private static final Logger log = LoggerFactory.getLogger(ThreadPoolTestController.class);
-
+    
     @Autowired
     private ThreadPoolService threadPoolService;
-
+    
     @GetMapping(value = "test")
     public String test() {
         log.info("iiiiiiiiiiiiiiiiiiiiiiiiiii");
         threadPoolService.asyncTest();
         return "fail";
     }
-
+    
 }

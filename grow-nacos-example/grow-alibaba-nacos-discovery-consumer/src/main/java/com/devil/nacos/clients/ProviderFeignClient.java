@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @FeignClient(value = "grow-alibaba-nacos-discovery-provider")
 public interface ProviderFeignClient {
-
+    
     @GetMapping(value = "/provider/get")
     String get();
-
+    
 }

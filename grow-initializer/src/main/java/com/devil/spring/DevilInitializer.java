@@ -12,9 +12,9 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @date Created in 2021/7/20 15:52
  */
 public class DevilInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilInitializer.class);
-
+    
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
         log.info("DevilInitializer 进行初始化 ===================");

@@ -10,7 +10,7 @@ import java.util.Map;
  * @date Created in 2021/7/6 11:46
  */
 public class ListCircleTest {
-
+    
     public static void main(String[] args) {
         Node node4 = new Node(4, null);
         Node node3 = new Node(3, null);
@@ -18,10 +18,10 @@ public class ListCircleTest {
         Node node1 = new Node(1, node3);
         Node node0 = new Node(0, node1);
         node3.setNext(node1);
-//        System.out.println(isCircleOne(node0));
+        //        System.out.println(isCircleOne(node0));
         System.out.println(isCircleTwo(node0));
     }
-
+    
     public static boolean isCircleOne(Node node) {
         boolean result = false;
         if (node != null) {
@@ -38,23 +38,23 @@ public class ListCircleTest {
         }
         return result;
     }
-
+    
     public static boolean isCircleTwo(Node node) {
         Node slow = node;
         Node fast = node.next;
-
+        
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-
+            
             if (fast == null) {
                 return false;
             } else if (slow == fast) {
                 return true;
             }
         }
-
+        
         return false;
     }
-
+    
 }

@@ -21,12 +21,12 @@ import java.util.concurrent.TimeUnit;
  */
 //@Component
 public class RabbitMqConsumer {
-
+    
     private static final Logger log = LoggerFactory.getLogger(RabbitMqConsumer.class);
-
+    
     @Autowired
     private RedissonClient redissonClient;
-
+    
     @RabbitListener(queues = {"devil-test"})
     public void handleCommonDirectMessage(Message message, Channel channel) {
         log.info("收到消息 : {}", new String(message.getBody()));
@@ -48,7 +48,7 @@ public class RabbitMqConsumer {
             log.error("队列数据处理失败", e);
         }
     }
-
+    
     @RabbitListener(queues = {"devil-topic-test"})
     public void handleCommonTopicMessage(Message message, Channel channel) {
         log.info("收到 {} 消息 : {}", message.getMessageProperties().getConsumerQueue(), new String(message.getBody()));
@@ -56,12 +56,12 @@ public class RabbitMqConsumer {
         try {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
             // 还可以nack，第三个参数是否重回队列
-//            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            //            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
         } catch (IOException e) {
             log.error("rabbitmq消费失败", e);
         }
     }
-
+    
     @RabbitListener(queues = {"devil-topic-test-all"})
     public void handleCommonTopicAllMessage(Message message, Channel channel) {
         log.info("收到 {} 消息 : {}", message.getMessageProperties().getConsumerQueue(), new String(message.getBody()));
@@ -69,12 +69,12 @@ public class RabbitMqConsumer {
         try {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
             // 还可以nack，第三个参数是否重回队列
-//            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            //            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
         } catch (IOException e) {
             log.error("rabbitmq消费失败", e);
         }
     }
-
+    
     @RabbitListener(queues = {"devil-test-delayed"})
     public void handleDelayedDirectMessage(Message message, Channel channel) {
         log.info("收到延时消息 : {}", new String(message.getBody()));
@@ -82,10 +82,10 @@ public class RabbitMqConsumer {
         try {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
             // 还可以nack，第三个参数是否重回队列
-//            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            //            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
         } catch (IOException e) {
             log.error("rabbitmq消费失败", e);
         }
     }
-
+    
 }

@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "discovery")
 public class ProviderController {
-
+    
     @GetMapping(value = "get")
     public String get() {
         return "devil nacos";
     }
-
+    
 }

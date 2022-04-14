@@ -10,9 +10,9 @@ import org.springframework.context.ApplicationListener;
  * @date Created in 2021/7/20 16:08
  */
 public class DevilListener implements ApplicationListener<ApplicationEvent> {
-
+    
     private static final Logger log = LoggerFactory.getLogger(DevilListener.class);
-
+    
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
         log.info("DevilListener 执行 ---------------------- 事件类型： {}", event);

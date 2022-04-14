@@ -9,7 +9,7 @@ import java.util.Stack;
  * @date Created in 2021/7/23 16:43
  */
 public class BinaryTreeLoop {
-
+    
     /**
      * 前序遍历  中  左  右   递归
      */
@@ -17,12 +17,12 @@ public class BinaryTreeLoop {
         if (node == null) {
             return;
         }
-
+        
         System.out.print(node + " ");
         preLoop(node.left);
         preLoop(node.right);
     }
-
+    
     /**
      * 前序遍历  中  左  右   非递归
      */
@@ -30,13 +30,13 @@ public class BinaryTreeLoop {
         if (node == null) {
             return;
         }
-
+        
         Stack<TreeNode> stack = new Stack<>();
         stack.push(node);
-
+        
         while (!stack.isEmpty()) {
             TreeNode root = stack.pop();
-
+            
             // 先压栈右子树
             if (root.right != null) {
                 stack.push(root.right);
@@ -44,11 +44,11 @@ public class BinaryTreeLoop {
             if (root.left != null) {
                 stack.push(root.left);
             }
-
+            
             System.out.print(root + " ");
         }
     }
-
+    
     /**
      * 中序遍历  左   中  右   递归
      */
@@ -56,12 +56,12 @@ public class BinaryTreeLoop {
         if (node == null) {
             return;
         }
-
+        
         middleLoop(node.left);
         System.out.print(node + " ");
         middleLoop(node.right);
     }
-
+    
     /**
      * 中序遍历  左   中  右   非递归
      */
@@ -70,7 +70,7 @@ public class BinaryTreeLoop {
             return;
         }
         Stack<TreeNode> stack = new Stack<>();
-
+        
         while (!stack.isEmpty() || node != null) {
             if (node != null) {
                 stack.push(node);
@@ -82,7 +82,7 @@ public class BinaryTreeLoop {
             }
         }
     }
-
+    
     /**
      * 后序遍历  左  右  中  递归
      */
@@ -90,12 +90,12 @@ public class BinaryTreeLoop {
         if (node == null) {
             return;
         }
-
+        
         postLoop(node.left);
         postLoop(node.right);
         System.out.print(node + " ");
     }
-
+    
     /**
      * 后序遍历  左  右  中  非递归
      */
@@ -106,7 +106,7 @@ public class BinaryTreeLoop {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(node);
         Stack<TreeNode> stack2 = new Stack<>();
-
+        
         while (!stack.isEmpty()) {
             TreeNode pop = stack.pop();
             stack2.push(pop);
@@ -121,7 +121,7 @@ public class BinaryTreeLoop {
             System.out.print(stack2.pop() + " ");
         }
     }
-
+    
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -130,30 +130,30 @@ public class BinaryTreeLoop {
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
-
+        
         System.out.print("preLoop: ");
         preLoop(root);
         System.out.println();
-
+        
         System.out.print("preLoop2: ");
         preLoop2(root);
         System.out.println();
-
+        
         System.out.print("middleLoop: ");
         middleLoop(root);
         System.out.println();
-
+        
         System.out.print("middleLoop2: ");
         middleLoop2(root);
         System.out.println();
-
+        
         System.out.print("postLoop: ");
         postLoop(root);
         System.out.println();
-
+        
         System.out.print("postLoop2: ");
         postLoop2(root);
         System.out.println();
     }
-
+    
 }

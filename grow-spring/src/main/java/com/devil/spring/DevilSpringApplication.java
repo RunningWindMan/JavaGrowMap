@@ -13,10 +13,10 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @EnableDevilAutoConfiguration
 @SpringBootApplication
 public class DevilSpringApplication {
-
+    
     public static void main(String[] args) {
         SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DevilSpringApplication.class);
         springApplicationBuilder.run(args);
     }
-
+    
 }

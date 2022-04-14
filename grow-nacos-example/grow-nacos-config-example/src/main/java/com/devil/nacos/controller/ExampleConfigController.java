@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "example")
 public class ExampleConfigController {
-
+    
     @NacosValue(value = "${nacos.example.data:1}", autoRefreshed = true)
     private String nacosData;
-
+    
     @Value("${data:666}")
     private String springData;
-
+    
     @GetMapping(value = "get")
     public String testGet() {
         return nacosData + "-" + springData;
     }
-
+    
 }

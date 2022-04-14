@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SampleBBeanList implements BeanListInterface, Ordered {
-
+    
     private static final Logger log = LoggerFactory.getLogger(SampleBBeanList.class);
-
+    
     @Override
     public void work() {
         log.info(">>>>>>>>>>  SampleBBeanList");
     }
-
+    
     @Override
     public int getOrder() {
         return -2;

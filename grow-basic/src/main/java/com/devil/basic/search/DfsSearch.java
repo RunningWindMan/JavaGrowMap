@@ -11,7 +11,7 @@ import java.util.*;
  * @date Created in 2022/3/2 13:47
  */
 public class DfsSearch {
-
+    
     public static List<Integer> search(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) {
@@ -31,7 +31,7 @@ public class DfsSearch {
         }
         return list;
     }
-
+    
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.setLeft(new TreeNode(2));
@@ -43,5 +43,5 @@ public class DfsSearch {
         List<Integer> result = search(root);
         result.forEach(System.out::println);
     }
-
+    
 }

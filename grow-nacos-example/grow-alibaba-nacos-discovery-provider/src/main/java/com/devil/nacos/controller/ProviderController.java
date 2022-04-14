@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "provider")
 public class ProviderController {
-
+    
     private static final Logger log = LoggerFactory.getLogger(ProviderController.class);
-
+    
     @GetMapping(value = "get")
     public String get() {
         log.info("devil nacos yes");
         return "nacos discovery get";
     }
-
+    
 }

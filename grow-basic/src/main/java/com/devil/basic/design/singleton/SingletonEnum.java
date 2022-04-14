@@ -7,14 +7,14 @@ package com.devil.basic.design.singleton;
  * @date Created in 2022/3/14 11:12
  */
 public enum SingletonEnum {
-
+    
     /**
      * 实例
      */
     INSTANCE;
-
+    
     public void doSomething() {
         System.out.println("doSomething");
     }
-
+    
 }

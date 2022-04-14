@@ -11,9 +11,9 @@ import java.util.List;
  * @date Created in 2021/6/25 9:21
  */
 public class ComputeSolution {
-
+    
     public static final Integer COUNT = 1000;
-
+    
     public static void arrayCompute() {
         // 数组存储每一位的数字
         List<Integer> num = new ArrayList<>();
@@ -41,7 +41,7 @@ public class ComputeSolution {
                 }
             }
         }
-
+        
         /**
          * 打印结果
          */
@@ -52,7 +52,7 @@ public class ComputeSolution {
             }
         }
     }
-
+    
     public static void bigIntegerCompute() {
         BigInteger b = new BigInteger("1");
         for (long i = 1; i <= COUNT; i++) {
@@ -60,7 +60,7 @@ public class ComputeSolution {
         }
         System.out.println(b);
     }
-
+    
     /**
      * 用数组计算2^1000
      *
@@ -73,5 +73,5 @@ public class ComputeSolution {
         System.out.println("biginteger实现");
         bigIntegerCompute();
     }
-
+    
 }

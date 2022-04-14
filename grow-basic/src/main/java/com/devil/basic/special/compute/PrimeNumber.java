@@ -9,7 +9,7 @@ import java.util.BitSet;
  * @date Created in 2022/3/2 10:25
  */
 public class PrimeNumber {
-
+    
     public static void main(String[] args) {
         int n = 100;
         BitSet b = new BitSet(n);
@@ -18,7 +18,7 @@ public class PrimeNumber {
         for (i = 2; i <= n; i++) {
             b.set(i);
         }
-
+        
         i = 2;
         while (i * i <= n) {
             if (b.get(i)) {
@@ -30,7 +30,7 @@ public class PrimeNumber {
             }
             i++;
         }
-
+        
         i = 0;
         while (i <= n) {
             if (b.get(i)) {
@@ -39,5 +39,5 @@ public class PrimeNumber {
             i++;
         }
     }
-
+    
 }

@@ -7,14 +7,14 @@ package com.devil.basic.sort;
  * @date Created in 2021/7/16 20:30
  */
 public class QuickSort implements Sort {
-
+    
     public static void main(String[] args) {
-        int[] a = new int[]{1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {1, 6, 2, 4, 5, 8};
         QuickSort quickSort = new QuickSort();
         quickSort.sort(a, a.length);
         quickSort.print(a);
     }
-
+    
     @Override
     public void sort(int[] a, int n) {
         if (a == null || n == 0) {
@@ -22,7 +22,7 @@ public class QuickSort implements Sort {
         }
         quickSort(a, 0, n - 1);
     }
-
+    
     private void quickSort(int[] a, int low, int high) {
         if (low < high) {
             int mid = partition(a, low, high);
@@ -30,7 +30,7 @@ public class QuickSort implements Sort {
             quickSort(a, mid + 1, high);
         }
     }
-
+    
     private int partition(int[] a, int low, int high) {
         int value = a[low];
         while (low < high) {
@@ -52,5 +52,5 @@ public class QuickSort implements Sort {
         a[low] = value;
         return low;
     }
-
+    
 }

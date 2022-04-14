@@ -27,24 +27,24 @@ import java.util.Map;
  */
 //@Component
 public class KafkaUtil {
-
+    
     private static final Logger log = LoggerFactory.getLogger(KafkaUtil.class);
-
+    
     @Value("${spring.kafka.bootstrap-servers}")
     private String springKafkaBootstrapServers;
-
+    
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
-
+    
     private AdminClient adminClient;
-
+    
     @PostConstruct
     private void initAdminClient() {
         Map<String, Object> props = new HashMap<>();
         props.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, springKafkaBootstrapServers);
         adminClient = KafkaAdminClient.create(props);
     }
-
+    
     public void send(String topic, Object obj) {
         String obj2String = new Gson().toJson(obj);
         // 发送消息
@@ -55,19 +55,19 @@ public class KafkaUtil {
                 // 发送失败的处理
                 log.error(topic + " - 生产者 发送消息失败：" + throwable.getMessage());
             }
-
+            
             @Override
             public void onSuccess(SendResult<String, Object> stringObjectSendResult) {
                 // 成功的处理
             }
         });
     }
-
+    
     /**
      * 删除topic，支持批量
      */
     public void deleteTopic(Collection<String> topics) {
         adminClient.deleteTopics(topics);
     }
-
+    
 }

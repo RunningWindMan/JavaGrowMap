@@ -12,13 +12,13 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @date Created in 2021/7/26 17:04
  */
 public class RpcEncoder extends MessageToByteEncoder {
-
+    
     private Class<?> target;
-
+    
     public RpcEncoder(Class target) {
         this.target = target;
     }
-
+    
     @Override
     protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
         if (target.isInstance(msg)) {

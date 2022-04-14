@@ -19,12 +19,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "consumer")
 public class ConsumerController {
-
+    
     private static final Logger log = LoggerFactory.getLogger(ConsumerController.class);
-
+    
     @NacosInjected
     private NamingService namingService;
-
+    
     @GetMapping(value = "get")
     public String get() {
         try {
@@ -35,5 +35,5 @@ public class ConsumerController {
         }
         return "success";
     }
-
+    
 }

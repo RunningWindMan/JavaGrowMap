@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "consumer")
 public class ConsumerController {
-
+    
     @Autowired
     private ProviderFeignClient providerFeignClient;
-
+    
     @GetMapping(value = "get")
     public String get() {
         return providerFeignClient.get();
     }
-
+    
 }

@@ -10,7 +10,7 @@ import java.util.Queue;
  * @date Created in 2022/3/1 16:28
  */
 public class TreeDepth {
-
+    
     public static int depth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -19,7 +19,7 @@ public class TreeDepth {
         int rightDepth = depth(root.right);
         return Math.max(leftDepth, rightDepth) + 1;
     }
-
+    
     public static int depth2(TreeNode root) {
         if (root == null) {
             return 0;
@@ -43,7 +43,7 @@ public class TreeDepth {
         }
         return maxDepth;
     }
-
+    
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -56,5 +56,5 @@ public class TreeDepth {
         System.out.println(depth(root));
         System.out.println(depth2(root));
     }
-
+    
 }

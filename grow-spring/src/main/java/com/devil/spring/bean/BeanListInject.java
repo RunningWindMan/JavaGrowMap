@@ -15,16 +15,16 @@ import java.util.List;
  */
 @Component
 public class BeanListInject {
-
+    
     private static final Logger log = LoggerFactory.getLogger(BeanListInject.class);
-
+    
     @Autowired
     private List<BeanListInterface> beanListInterfaceList;
-
+    
     public void work() {
         for (BeanListInterface beanListInterface : beanListInterfaceList) {
             beanListInterface.work();
         }
     }
-
+    
 }

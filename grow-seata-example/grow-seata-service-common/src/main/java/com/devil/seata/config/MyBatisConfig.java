@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class MyBatisConfig {
-
+    
     /**
      * @param sqlSessionFactory SqlSessionFactory
      * @return SqlSessionTemplate
@@ -28,13 +28,13 @@ public class MyBatisConfig {
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
-
+    
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource() {
         return new HikariDataSource();
     }
-
+    
     /**
      * 构造datasource代理对象，替换原来的datasource
      *
@@ -46,7 +46,7 @@ public class MyBatisConfig {
     public DataSourceProxy dataSourceProxy(DataSource dataSource) {
         return new DataSourceProxy(dataSource);
     }
-
+    
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean(DataSourceProxy dataSourceProxy) throws Exception {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
@@ -54,7 +54,7 @@ public class MyBatisConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         // bean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
         bean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*-mapper.xml"));
-
+        
         SqlSessionFactory factory = null;
         try {
             factory = bean.getObject();
@@ -63,7 +63,7 @@ public class MyBatisConfig {
         }
         return factory;
     }
-
+    
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
