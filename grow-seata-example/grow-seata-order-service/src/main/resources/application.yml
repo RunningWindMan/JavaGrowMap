@@ -21,8 +21,6 @@ seata:
   enabled: true
   service:
     disable-global-transaction: false
-    grouplist:
-      default: 127.0.0.1:8091
     vgroup-mapping:
       business-service: default
   tx-service-group: business-service
@@ -34,10 +32,6 @@ seata:
       group: SEATA_GROUP
       username: nacos
       password: nacos
+    type: nacos
   config:
-    nacos:
-      server-addr: 127.0.0.1:8848
-      namespace: seata
-      group: SEATA_GROUP
-      username: nacos
-      password: nacos
+    type: file
