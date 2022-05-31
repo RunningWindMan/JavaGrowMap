@@ -144,12 +144,16 @@ public class Test {
         
         //        httpTest();
         
-        // 排序
-        int[] a = {1, -1, 0};
-        Arrays.sort(a);
-        for (int i : a) {
-            System.out.println(i);
-        }
+//        // 排序
+//        int[] a = {1, -1, 0};
+//        Arrays.sort(a);
+//        for (int i : a) {
+//            System.out.println(i);
+//        }
+        
+        System.out.println(1 | 2);
+        System.out.println(3 & 3);
+        System.out.println(3 & 2);
     }
     
     public static List startPage(List list, Integer pageNum, Integer pageSize) {
