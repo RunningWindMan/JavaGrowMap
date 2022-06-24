@@ -13,7 +13,6 @@
         <module>grow-rpc</module>
         <module>grow-nacos-example</module>
         <module>grow-seata-example</module>
-        <module>grow-Oauth2</module>
         <module>grow-oauth2</module>
     </modules>
     <groupId>com.devil</groupId>
