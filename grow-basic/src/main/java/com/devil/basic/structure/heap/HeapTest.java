@@ -20,6 +20,8 @@ package com.devil.basic.structure.heap;
  * 小标： 0  1  2  3   4   5
  * </blockquote>
  *
+ * 一般升序采用大顶堆，降序采用小顶堆
+ *
  * @author Devil
  * @date Created in 2021/7/21 16:47
  */
@@ -43,7 +45,7 @@ public class HeapTest {
     }
     
     /**
-     * 构造大顶堆（找最小）
+     * 构造大顶堆
      */
     public void highestHeap(int[] a, int i, int heapLength) {
         int l = left(i);
@@ -73,7 +75,7 @@ public class HeapTest {
     }
     
     /**
-     * 构造小顶堆（找最大）
+     * 构造小顶堆
      */
     public void lowestHeap(int[] a, int i, int heapLength) {
         int l = left(i);

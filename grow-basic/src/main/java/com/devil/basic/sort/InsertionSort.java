@@ -10,7 +10,7 @@ public class InsertionSort implements Sort {
     
     public static void main(String[] args) {
         Sort sort = new InsertionSort();
-        int[] a = new int[] {1, 6, 2, 4, 5, 8};
+        int[] a = new int[] {6, 1, 2, 4, 5, 8};
         sort.sort(a, a.length);
         sort.print(a);
     }
@@ -27,13 +27,8 @@ public class InsertionSort implements Sort {
             int value = a[i];
             // 查询有序集合
             int j = i - 1;
-            for (; j >= 0; j--) {
-                if (a[j] > value) {
-                    a[j + 1] = a[j];
-                } else {
-                    // 默认之前的都已排序好，不需要再排序
-                    break;
-                }
+            for (; j >= 0 && a[j] > value; j--) {
+                a[j + 1] = a[j];
             }
             // 最后塞入当前值，为什么是j+1，因为之前j--过
             a[j + 1] = value;

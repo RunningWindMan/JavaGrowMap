@@ -44,6 +44,7 @@ spring:
         min-idle: 5
     port: 6379
     timeout: 6000
+    password: 123456
   #rabbitmq配置
   rabbitmq:
     host: localhost
@@ -59,6 +60,22 @@ spring:
         acknowledge-mode: manual
         #限制每次发送一条数据
         prefetch: 1
-
+  #mail配置
+  mail:
+    host: smtp.163.com
+    username: runningwindman@163.com
+    password: PLXZJOQWQGQFZZRZ
+    default-encoding: utf-8
+    port: 25
+    properties:
+      mail:
+        debug: false   ##  调试时这里可以用true，可以看到发送邮箱的整个流程调试信息
+        smtp:
+          ssl:
+            trust: smtp.163.com
+          auth: true
+          starttls:
+            enable: true    ## 这里用true
+            required: true  ## 这里用true
 server:
   port: 8888
