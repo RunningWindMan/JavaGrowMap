@@ -43,6 +43,11 @@
             <version>31.0.1-jre</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.1</version>
+        </dependency>
     </dependencies>
 
 </project>

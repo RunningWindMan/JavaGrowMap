@@ -1,4 +1,4 @@
-package com.devil.basic.proxy.dynamic;
+package com.devil.basic.proxy.dynamic.jdk;
 
 /**
  * @author Devil
